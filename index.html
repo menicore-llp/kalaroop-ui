@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <!-- #ffffe6 -->
+  <body class="bg-[#ecf9ec]">
+    <header class="py-2 sticky top-0 bg-white border-b border-gray-100 z-10">
+      <div class="container">
+        <div class="flex justify-between">
+          <div
+            class="w-[150px] h-[46px] flex justify-center items-center text-2xl font-bold"
+          >
+            <span>KalaRoop</span>
+          </div>
+          <div
+            class="flex gap-7 font-medium items-center max-md:hidden text-base"
+          >
+            <a href="#">Browse Artists</a>
+            <a href="#">How It Works</a>
+            <a href="#">Help</a>
+            <a
+              href="#"
+              class="group rounded-full relative flex items-center px-4 py-1.5 justify-center overflow-hidden bg-white text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#e65e19] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-[#e65e19]"
+              ><span class="relative z-10 text-[#e65e19] group-hover:text-white"
+                >Sign In</span
+              ></a
+            >
+            <button
+              class="group rounded-full relative flex items-center px-4 py-1.5 justify-center overflow-hidden bg-[#e65e19] text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#fff] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-[#e65e19] hover:border-white"
+            >
+              <span class="relative z-10 group-hover:text-[#e65e19]"
+                >Join as Artist</span
+              >
+            </button>
+          </div>
+          <button
+            type="button"
+            onclick="openMenu()"
+            class="cursor-pointer hidden max-md:block"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              fill="black"
+              class="my-auto"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="hidden max-md:block menu fixed -z-10 top-[-100%] opacity-0 transition-all duration-300 ease-in-out w-screen py-4 bg-white"
+      >
+        <div class="container">
+          <div
+            class="flex flex-col gap-6 items-center justify-center text-lg font-medium"
+          >
+            <a href="#">Find Singers</a>
+            <a href="#">How It Works</a>
+            <a href="#">Become a Singer</a>
+            <a href="#">Help</a>
+            <a href="#">Sign In</a>
+            <a href="#" class="bg-gray-100 px-4 py-2 rounded-full">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- hero section -->
+      <section
+        class="relative min-h-[850px] h-[90vh] bg-linear-to-t from-[#ecf9ec] to-transparent"
+      >
+        <img
+          src="./assets/hero-background.jpeg"
+          alt="hero background"
+          class="absolute inset-0 w-full h-full object-cover -z-10 opacity-75"
+        />
+        <div class="container h-full flex items-center justify-center">
+          <div class="pt-18 h-full flex flex-col">
+            <div class="my-auto">
+              <h1 class="text-6xl font-bold text-center max-w-[900px] mx-auto">
+                Book the Perfect Artist for
+                <span class="text-[#e65e19]">Every Occasion</span>
+              </h1>
+              <p
+                class="text-xl font-semibold text-center pt-8 max-w-[1050px] mx-auto text-black/60"
+              >
+                Connect with verified professional artists and entertainers for
+                weddings, corporate events, parties, and more. Trusted by
+                thousands of event hosts.
+              </p>
+              <div class="pt-10 flex items-center gap-4 justify-center">
+                <button
+                  class="group rounded-full relative flex items-center px-6 py-3 justify-center overflow-hidden bg-[#e65e19] text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#fff] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-[#e65e19] hover:border-white"
+                >
+                  <span class="relative z-10 group-hover:text-[#e65e19]"
+                    >Find Artist</span
+                  >
+                </button>
+                <a
+                  href="#"
+                  class="group rounded-full relative flex items-center px-6 py-3 justify-center overflow-hidden bg-white text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#e65e19] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-[#e65e19]"
+                  ><span
+                    class="relative z-10 text-[#e65e19] group-hover:text-white"
+                    >Join as Artist</span
+                  ></a
+                >
+              </div>
+            </div>
+            <div
+              class="!bg-white px-6 md:px-9 py-7 md:py-8 rounded-2xl md:rounded-xl border-b border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-4 shadow-lg max-w-[800px] mx-auto mt-16 md:mt-2"
+            >
+              <div class="flex flex-col gap-2">
+                <span
+                  class="text-xs text-[#e65e19] font-semibold flex gap-1 items-center"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#e65e19"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-map-pin-icon lucide-map-pin"
+                  >
+                    <path
+                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                    />
+                    <circle cx="12" cy="10" r="3" /></svg
+                  >Location</span
+                >
+                <input
+                  type="text"
+                  class="py-2 px-4 rounded-lg bg-gray-100 placeholder:text-black border border-gray-300"
+                  placeholder="Select City"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <span
+                  class="text-xs text-[#e65e19] font-semibold flex gap-1 items-center"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#e65e19"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-drama-icon lucide-drama"
+                  >
+                    <path d="M10 11h.01" />
+                    <path d="M14 6h.01" />
+                    <path d="M18 6h.01" />
+                    <path d="M6.5 13.1h.01" />
+                    <path
+                      d="M22 5c0 9-4 12-6 12s-6-3-6-12c0-2 2-3 6-3s6 1 6 3"
+                    />
+                    <path d="M17.4 9.9c-.8.8-2 .8-2.8 0" />
+                    <path
+                      d="M10.1 7.1C9 7.2 7.7 7.7 6 8.6c-3.5 2-4.7 3.9-3.7 5.6 4.5 7.8 9.5 8.4 11.2 7.4.9-.5 1.9-2.1 1.9-4.7"
+                    />
+                    <path d="M9.1 16.5c.3-1.1 1.4-1.7 2.4-1.4" /></svg
+                  >Artist Category</span
+                >
+                <input
+                  type="text"
+                  class="py-2 px-4 rounded-lg bg-gray-100 placeholder:text-black border border-gray-300"
+                  placeholder="Select Category"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <span
+                  class="text-xs text-[#e65e19] font-semibold flex gap-1 items-center"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#e65e19"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-calendar-days-icon lucide-calendar-days"
+                  >
+                    <path d="M8 2v4" />
+                    <path d="M16 2v4" />
+                    <rect width="18" height="18" x="3" y="4" rx="2" />
+                    <path d="M3 10h18" />
+                    <path d="M8 14h.01" />
+                    <path d="M12 14h.01" />
+                    <path d="M16 14h.01" />
+                    <path d="M8 18h.01" />
+                    <path d="M12 18h.01" />
+                    <path d="M16 18h.01" /></svg
+                  >Event Date</span
+                >
+                <input
+                  type="date"
+                  placeholder="Event Date"
+                  class="py-2 px-4 rounded-lg bg-gray-100 placeholder:text-black border border-gray-300"
+                />
+              </div>
+              <button
+                class="bg-[#e65e19] p-2 flex items-center justify-center gap-2 rounded-lg text-white font-medium mt-auto h-[42px]!"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-search-icon lucide-search"
+                >
+                  <path d="m21 21-4.34-4.34" />
+                  <circle cx="11" cy="11" r="8" />
+                </svg>
+                Search
+              </button>
+              <div
+                class="col-span-2 md:col-span-4 flex flex-wrap gap-4 items-center"
+              >
+                <p class="text-[#e65e19] text-xs">Poular Searches:</p>
+                <span
+                  class="text-xs bg-[#ecf9ec] py-1.5 px-4 rounded-full font-medium text-gray-600"
+                  >Wedding Singer</span
+                >
+                <span
+                  class="text-xs bg-[#ecf9ec] py-1.5 px-4 rounded-full font-medium text-gray-600"
+                  >Corporate Host</span
+                >
+                <span
+                  class="text-xs bg-[#ecf9ec] py-1.5 px-4 rounded-full font-medium text-gray-600"
+                  >Sketch Artist</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- features -->
+      <section class="pt-40 pb-20">
+        <div class="container">
+          <div class="grid grid-cols-3 max-md:grid-cols-1 gap-8 md:!px-28">
+            <div
+              class="flex flex-col items-start shadow-lg rounded-xl p-7 bg-white"
+            >
+              <div class="bg-[#fcefe8] p-3 w-fit rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-shield-check-icon lucide-shield-check"
+                >
+                  <path
+                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                  />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <h3 class="pt-5 text-2xl font-bold text-center">
+                Verified Artists
+              </h3>
+              <p class="pt-3 text-sm font-medium text-gray-600">
+                All artists are thoroughly vetted and verified with background
+                checks and portfolio reviews.
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-start shadow-lg rounded-xl p-7 bg-white"
+            >
+              <div class="bg-[#fcefe8] p-3 w-fit rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-calendar-check-icon lucide-calendar-check"
+                >
+                  <path d="M8 2v4" />
+                  <path d="M16 2v4" />
+                  <rect width="18" height="18" x="3" y="4" rx="2" />
+                  <path d="M3 10h18" />
+                  <path d="m9 16 2 2 4-4" />
+                </svg>
+              </div>
+              <h3 class="pt-5 text-2xl font-bold text-center">Easy Booking</h3>
+              <p class="pt-3 text-sm font-medium text-gray-600">
+                Simple booking process with instant confirmations and secure
+                payment protection.
+              </p>
+            </div>
+            <div
+              class="flex flex-col items-start shadow-lg rounded-xl p-7 bg-white"
+            >
+              <div class="bg-[#fcefe8] p-3 w-fit rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-users-icon lucide-users"
+                >
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <circle cx="9" cy="7" r="4" />
+                </svg>
+              </div>
+              <h3 class="pt-5 text-2xl font-bold text-center">
+                Trusted by Event Hosts
+              </h3>
+              <p class="pt-3 text-sm font-medium text-gray-600">
+                Join thousands of satisfied event hosts who found their perfect
+                artist through our platform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- featured artist -->
+      <section class="py-20">
+        <div class="container items-center justify-center flex flex-col">
+          <div class="flex flex-col gap-4 items-center justify-center">
+            <h2 class="text-5xl font-bold">Artist Categories</h2>
+            <p class="text-lg font-medium text-gray-600">
+              Discover skilled artists across multiple categories in one place.
+            </p>
+          </div>
+          <div
+            class="pt-12 grid grid-cols-5 gap-6 max-lg:grid-cols-3 max-md:grid-cols-2"
+          >
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="relative rounded-full h-[180px] w-[180px] overflow-hidden"
+              >
+                <img
+                  src="./assets/Category/Textile_Painting.jpg"
+                  alt=""
+                  class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-all"
+                />
+              </div>
+              <h3 class="pt-2 font-bold text-lg text-center">
+                Textile Painting
+              </h3>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="relative rounded-full h-[180px] w-[180px] overflow-hidden"
+              >
+                <img
+                  src="./assets/Category/Crochet_Art.jpg"
+                  alt=""
+                  class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-all"
+                />
+              </div>
+              <h3 class="pt-2 font-bold text-lg text-center">Crochet Art</h3>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="relative rounded-full h-[180px] w-[180px] overflow-hidden"
+              >
+                <img
+                  src="./assets/Category/Sketch_Artist.jpg"
+                  alt=""
+                  class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-all"
+                />
+              </div>
+              <h3 class="pt-2 font-bold text-lg text-center">Sketch_Artist</h3>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="relative rounded-full h-[180px] w-[180px] overflow-hidden"
+              >
+                <img
+                  src="./assets/Category/Musicians.jpg"
+                  alt=""
+                  class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-all"
+                />
+              </div>
+              <h3 class="pt-2 font-bold text-lg text-center">Musicians</h3>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+              <div
+                class="relative rounded-full h-[180px] w-[180px] overflow-hidden"
+              >
+                <img
+                  src="./assets/Category/Singer.jpg"
+                  alt=""
+                  class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-all"
+                />
+              </div>
+              <h3 class="pt-2 font-bold text-lg text-center">Singer</h3>
+            </div>
+          </div>
+          <a
+            href="#"
+            class="group text-[#e65e19] border border-[#e65e19] px-6 py-2.5 rounded-full font-medium text-base mt-14 flex justify-center items-center gap-4 overflow-hidden relative"
+            ><span class="relative z-10">Explore More Category</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#e65e19"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-move-right-icon lucide-move-right opacity-0 -z-10 transition-all absolute group-hover:translate-x-[91px] group-hover:opacity-100"
+            >
+              <path d="M18 8L22 12L18 16" />
+              <path d="M2 12H22" />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#e65e19"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-move-right-icon lucide-move-right group-hover:translate-x-12 transition-all"
+            >
+              <path d="M18 8L22 12L18 16" />
+              <path d="M2 12H22" /></svg
+          ></a>
+        </div>
+      </section>
+
+      <!-- featured artist -->
+      <section class="py-20">
+        <div class="container items-center justify-center flex flex-col">
+          <div class="flex flex-col gap-4 items-center">
+            <h2 class="text-4xl font-bold">Featured Artist</h2>
+            <p class="text-xl font-medium text-gray-600">
+              Top-rated professionals ready to make your event unforgettable
+            </p>
+          </div>
+          <div
+            class="pt-12 grid grid-cols-4 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1 w-full"
+          >
+            <div class="flex flex-col group bg-white rounded-3xl shadow-lg p-2">
+              <div class="relative aspect-square overflow-hidden rounded-2xl">
+                <img
+                  src="./assets/Artist/Host.jpg"
+                  alt=""
+                  class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all"
+                />
+              </div>
+              <div class="px-3 pt-2 pb-3">
+                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                <div class="pt-1 flex justify-between">
+                  <p class="text-xs text-gray-600">Host</p>
+                  <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                </div>
+                <div class="py-2 flex items-center justify-between">
+                  <div class="flex items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#e65e19"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin-icon lucide-map-pin"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <p class="text-sm text-gray-800">Ahmedabad</p>
+                  </div>
+                  <p class="text-lg font-semibold text-[#e65e19]">
+                    25,000/Event
+                  </p>
+                </div>
+                <a
+                  href="#"
+                  class="text-white bg-[#e65e19] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4"
+                  >View Profile<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-move-right-icon lucide-move-right"
+                  >
+                    <path d="M18 8L22 12L18 16" />
+                    <path d="M2 12H22" /></svg
+                ></a>
+              </div>
+            </div>
+            <div class="flex flex-col group bg-white rounded-3xl shadow-lg p-2">
+              <div class="relative aspect-square overflow-hidden rounded-2xl">
+                <img
+                  src="./assets/Artist/Painter.jpg"
+                  alt=""
+                  class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all"
+                />
+              </div>
+              <div class="px-3 pt-2 pb-3">
+                <h3 class="pt-2 font-semibold text-xl">Sameer Altaf</h3>
+                <div class="pt-1 flex justify-between">
+                  <p class="text-xs text-gray-600">Painter</p>
+                  <p class="text-xs text-gray-600">Rating (4.9/5)</p>
+                </div>
+                <div class="py-2 flex items-center justify-between">
+                  <div class="flex items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#e65e19"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin-icon lucide-map-pin"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <p class="text-sm text-gray-800">Ahmedabad</p>
+                  </div>
+                  <p class="text-lg font-semibold text-[#e65e19]">40,000/Art</p>
+                </div>
+                <a
+                  href="#"
+                  class="text-white bg-[#e65e19] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4"
+                  >View Profile<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-move-right-icon lucide-move-right"
+                  >
+                    <path d="M18 8L22 12L18 16" />
+                    <path d="M2 12H22" /></svg
+                ></a>
+              </div>
+            </div>
+            <div class="flex flex-col group bg-white rounded-3xl shadow-lg p-2">
+              <div class="relative aspect-square overflow-hidden rounded-2xl">
+                <img
+                  src="./assets/Artist/Gitarist.jpg"
+                  alt=""
+                  class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all"
+                />
+              </div>
+              <div class="px-3 pt-2 pb-3">
+                <h3 class="pt-2 font-semibold text-xl">Suhani Agraval</h3>
+                <div class="pt-1 flex justify-between">
+                  <p class="text-xs text-gray-600">Guitarist</p>
+                  <p class="text-xs text-gray-600">Rating (4.7/5)</p>
+                </div>
+                <div class="py-2 flex items-center justify-between">
+                  <div class="flex items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#e65e19"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin-icon lucide-map-pin"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <p class="text-sm text-gray-800">Ahmedabad</p>
+                  </div>
+                  <p class="text-lg font-semibold text-[#e65e19]">
+                    15,000/Event
+                  </p>
+                </div>
+                <a
+                  href="#"
+                  class="text-white bg-[#e65e19] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4"
+                  >View Profile<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-move-right-icon lucide-move-right"
+                  >
+                    <path d="M18 8L22 12L18 16" />
+                    <path d="M2 12H22" /></svg
+                ></a>
+              </div>
+            </div>
+            <div class="flex flex-col group bg-white rounded-3xl shadow-lg p-2">
+              <div class="relative aspect-square overflow-hidden rounded-2xl">
+                <img
+                  src="./assets/Artist/Singer.jpg"
+                  alt=""
+                  class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all"
+                />
+              </div>
+              <div class="px-3 pt-2 pb-3">
+                <h3 class="pt-2 font-semibold text-xl">Sahil Verma</h3>
+                <div class="pt-1 flex justify-between">
+                  <p class="text-xs text-gray-600">Singer</p>
+                  <p class="text-xs text-gray-600">Rating (4.9/5)</p>
+                </div>
+                <div class="py-2 flex items-center justify-between">
+                  <div class="flex items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#e65e19"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin-icon lucide-map-pin"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <p class="text-sm text-gray-800">Ahmedabad</p>
+                  </div>
+                  <p class="text-lg font-semibold text-[#e65e19]">
+                    80,000/Event
+                  </p>
+                </div>
+                <a
+                  href="#"
+                  class="text-white bg-[#e65e19] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4"
+                  >View Profile<svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-move-right-icon lucide-move-right"
+                  >
+                    <path d="M18 8L22 12L18 16" />
+                    <path d="M2 12H22" /></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+          <a
+            href="#"
+            class="group text-[#e65e19] border border-[#e65e19] px-6 py-2.5 rounded-full font-medium text-base mt-14 flex justify-center items-center gap-4 overflow-hidden relative"
+            ><span class="relative z-10">Explore More Category</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#e65e19"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-move-right-icon lucide-move-right opacity-0 -z-10 transition-all absolute group-hover:translate-x-[91px] group-hover:opacity-100"
+            >
+              <path d="M18 8L22 12L18 16" />
+              <path d="M2 12H22" />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#e65e19"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-move-right-icon lucide-move-right group-hover:translate-x-12 transition-all"
+            >
+              <path d="M18 8L22 12L18 16" />
+              <path d="M2 12H22" /></svg
+          ></a>
+        </div>
+      </section>
+
+      <!-- featured artist -->
+      <section class="py-20 bg-white">
+        <div class="container">
+          <div class="flex flex-col gap-4 items-center justify-center">
+            <h2 class="text-5xl font-bold">How It Works</h2>
+            <p class="text-lg font-medium text-gray-600">
+              Three simple steps to book your perfect artist
+            </p>
+          </div>
+          <div class="pt-12 grid grid-cols-3 gap-6 max-md:grid-cols-1">
+            <div class="flex flex-col justify-start items-center p-4">
+              <span
+                class="border-2 border-gray-200 bg-[#fcefe8] p-6 rounded-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-search-icon lucide-search"
+                >
+                  <path d="m21 21-4.34-4.34" />
+                  <circle cx="11" cy="11" r="8" />
+                </svg>
+              </span>
+              <h3 class="text-2xl font-semibold pt-4">1. Search Artists</h3>
+              <p class="pt-5 text-center font-semibold text-gray-700">
+                Browse through our curated list of verified professional
+                artists. Filter by event type, location, and budget to find your
+                perfect match.
+              </p>
+            </div>
+            <div class="flex flex-col justify-center items-center p-4">
+              <span
+                class="border-2 border-gray-200 bg-[#fcefe8] p-6 rounded-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-handshake-icon lucide-handshake"
+                >
+                  <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+                  <path
+                    d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"
+                  />
+                  <path d="m21 3 1 11h-2" />
+                  <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+                  <path d="M3 4h8" />
+                </svg>
+              </span>
+              <h3 class="text-2xl font-semibold pt-4">2. Request Booking</h3>
+              <p class="pt-5 text-center font-semibold text-gray-700">
+                Send a booking request with your event details. Artists respond
+                quickly with availability and custom quotes. Secure payment
+                protection included.
+              </p>
+            </div>
+            <div class="flex flex-col justify-center items-center p-4">
+              <span
+                class="border-2 border-gray-200 bg-[#fcefe8] p-6 rounded-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-star-icon lucide-star"
+                >
+                  <path
+                    d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                  />
+                </svg>
+              </span>
+              <h3 class="text-2xl font-semibold pt-4">3. Enjoy Event</h3>
+              <p class="pt-5 text-center font-semibold text-gray-700">
+                Relax and enjoy your event while your chosen artist delivers an
+                unforgettable performance. Leave a review to help other hosts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- browse by event type -->
+      <section class="py-26">
+        <div class="container">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div
+              class="bg-white p-8 rounded-2xl flex flex-col items-start shadow-lg"
+            >
+              <div class="bg-[#fcefe8] p-3 w-fit rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-calendar1-icon lucide-calendar-1"
+                >
+                  <path d="M11 14h1v4" />
+                  <path d="M16 2v4" />
+                  <path d="M3 10h18" />
+                  <path d="M8 2v4" />
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                </svg>
+              </div>
+              <h2 class="pt-5 text-3xl font-bold">Planning an Event?</h2>
+              <p class="pt-3 text-base font-medium text-gray-600">
+                Find the perfect artist to bring your vision to life.<br />
+                Browse thousands of verified professionals ready to make your
+                event memorable.
+              </p>
+              <a
+                href="#"
+                class="text-white bg-[#e65e19] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4 mt-6"
+                >Browse Artists Now<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ffffff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-move-right-icon lucide-move-right"
+                >
+                  <path d="M18 8L22 12L18 16" />
+                  <path d="M2 12H22" /></svg
+              ></a>
+            </div>
+            <div
+              class="bg-[#e65e19] p-8 rounded-2xl flex flex-col items-start shadow-lg"
+            >
+              <div class="bg-[#fcefe8] p-2.5 w-fit rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-drama-icon lucide-drama"
+                >
+                  <path d="M10 11h.01" />
+                  <path d="M14 6h.01" />
+                  <path d="M18 6h.01" />
+                  <path d="M6.5 13.1h.01" />
+                  <path d="M22 5c0 9-4 12-6 12s-6-3-6-12c0-2 2-3 6-3s6 1 6 3" />
+                  <path d="M17.4 9.9c-.8.8-2 .8-2.8 0" />
+                  <path
+                    d="M10.1 7.1C9 7.2 7.7 7.7 6 8.6c-3.5 2-4.7 3.9-3.7 5.6 4.5 7.8 9.5 8.4 11.2 7.4.9-.5 1.9-2.1 1.9-4.7"
+                  />
+                  <path d="M9.1 16.5c.3-1.1 1.4-1.7 2.4-1.4" />
+                </svg>
+              </div>
+              <h2 class="pt-5 text-3xl font-bold text-white">
+                Are You an Artist?
+              </h2>
+              <p class="pt-3 text-base font-medium text-gray-200">
+                Join our platform and connect with clients looking for your
+                talent. <br />Build your brand, showcase your work, and grow
+                your business.
+              </p>
+              <a
+                href="#"
+                class="text-[#e65e19] bg-white border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4 mt-auto"
+                >Join as an Artist<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-move-right-icon lucide-move-right"
+                >
+                  <path d="M18 8L22 12L18 16" />
+                  <path d="M2 12H22" /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- clients section -->
+      <section class="pt-16 pb-40">
+        <div class="container">
+          <div class="flex flex-col gap-6 items-center">
+            <h2 class="text-4xl font-bold">What Our Clients Say</h2>
+            <p class="text-xl font-medium text-gray-600">
+              Trusted by thousands of event organizers
+            </p>
+          </div>
+          <div class="grid grid-cols-3 max-[992px]:grid-cols-1 gap-6 pt-12">
+            <div class="p-6 rounded-xl bg-gray-50 flex flex-col shadow-lg">
+              <div class="flex items-center gap-1">
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+              </div>
+              <p class="pt-4 font-medium text-gray-600">
+                "The singer we booked through SingerBook was absolutely
+                phenomenal! Our wedding guests are still taking about the
+                performance. Highly recommended!"
+              </p>
+              <div class="flex items-center gap-3 pt-8 mt-auto">
+                <img
+                  src="./assets/Artist/Gitarist.jpg"
+                  alt=""
+                  class="w-16 h-16 object-cover rounded-full"
+                />
+                <div class="flex flex-col">
+                  <p class="text-lg font-bold">Neha Kapoor</p>
+                  <p class="text-gray-600 font-medium">Wedding Client</p>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 rounded-xl bg-gray-50 flex flex-col shadow-lg">
+              <div class="flex items-center gap-1">
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+              </div>
+              <p class="pt-4 font-medium text-gray-600">
+                "Professional service from start to finish. The booking process
+                was seamless and the artist exceeded our expectations at our
+                corporate event."
+              </p>
+              <div class="flex items-center gap-3 pt-8 mt-auto">
+                <img
+                  src="./assets/Artist/Singer.jpg"
+                  alt=""
+                  class="w-16 h-16 object-cover rounded-full"
+                />
+                <div class="flex flex-col">
+                  <p class="text-lg font-bold">Rajesh Kumar</p>
+                  <p class="text-gray-600 font-medium">
+                    Coporate Event Manager
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="p-6 rounded-xl bg-gray-50 flex flex-col shadow-lg">
+              <div class="flex items-center gap-1">
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+                <svg
+                  class="w-6 h-6 text-yellow-400"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  />
+                </svg>
+              </div>
+              <p class="pt-4 font-medium text-gray-600">
+                "Amazing platform! Found the perfect devotional singer for our
+                family function. The quality and professionalism were
+                outstanding."
+              </p>
+              <div class="flex items-center gap-3 pt-8 mt-auto">
+                <img
+                  src="./assets/Artist/Host.jpg"
+                  alt=""
+                  class="w-16 h-16 object-cover rounded-full"
+                />
+                <div class="flex flex-col">
+                  <p class="text-lg font-bold">Meera Patel</p>
+                  <p class="text-gray-600 font-medium">Family Event</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-[#e65e19] text-gray-100 pt-20 pb-12">
+      <div class="container">
+        <div class="grid grid-cols-5 gap-8 max-md:grid-cols-2 pb-8">
+          <!-- Column 1 -->
+          <div class="col-span-2">
+            <h3 class="text-white font-bold text-lg mb-4">KalaRoop</h3>
+            <p class="text-sm max-w-[300px]">
+              The premier platform connecting artists with event opportunities
+              worldwide.
+            </p>
+            <div class="flex gap-4 mt-4">
+              <div class="bg-[#fcefe8] p-2 w-fit rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-facebook-icon lucide-facebook"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </div>
+              <div class="bg-[#fcefe8] p-2 w-fit rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-instagram-icon lucide-instagram"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </div>
+              <div class="bg-[#fcefe8] p-2 w-fit rounded-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#e65e19"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-twitter-icon lucide-twitter"
+                >
+                  <path
+                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div>
+            <h4 class="text-white font-semibold mb-4">For Artists</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#" class="hover:text-white">Register</a></li>
+              <li><a href="#" class="hover:text-white">How It Works</a></li>
+              <li><a href="#" class="hover:text-white">Success Stories </a></li>
+              <li><a href="#" class="hover:text-white">Pricing</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div>
+            <h4 class="text-white font-semibold mb-4">For Event Hosts</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#" class="hover:text-white">Find Artists </a></li>
+              <li><a href="#" class="hover:text-white">Blog</a></li>
+              <li><a href="#" class="hover:text-white">Enterprise</a></li>
+              <li><a href="#" class="hover:text-white">Support</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4 -->
+          <div>
+            <h4 class="text-white font-semibold mb-4">Company</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#" class="hover:text-white">About Us</a></li>
+              <li><a href="#" class="hover:text-white">Contact</a></li>
+              <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+              <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 pt-8 mt-8 text-center text-sm">
+          <p>&copy; 2024 KalaRoop. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    function openMenu() {
+      document.body.classList.toggle("menu-open");
+    }
+  </script>
+</html>

@@ -1,9 +1,12 @@
 body.menu-open {
+  position: fixed;
   overflow: hidden;
+  z-index: 9999 !important;
+
   .menu {
     opacity: 1;
     top: 62px;
-    z-index: 9999;
+    z-index: 9999 !important;
   }
 }
 

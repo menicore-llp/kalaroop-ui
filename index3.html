@@ -100,15 +100,27 @@
     <main>
       <!-- hero section -->
       <section
-        class="relative min-h-[850px] h-[90vh] bg-linear-to-t from-[#FAF8F5] to-transparent"
+        class="relative min-h-[850px] h-[90vh]"
+        style="
+          background: linear-gradient(
+            0deg,
+            rgba(250, 248, 245, 1) 0%,
+            rgba(255, 255, 255, 0) 140%
+          );
+        "
       >
-        <video
+        <!-- <video
           src="./assets/home_video.mp4"
           autoplay
           muted
           loop
           class="absolute inset-0 w-full h-full object-cover -z-10 opacity-75 pb-1"
-        ></video>
+        /> -->
+        <img
+          src="./assets/hero4.png"
+          alt="Hero Banner"
+          class="absolute inset-0 w-full h-full object-cover -z-10 opacity-75 pb-1"
+        />
         <div class="container h-full flex items-center justify-center">
           <div class="pt-18 h-full flex flex-col">
             <div class="my-auto">
@@ -117,7 +129,7 @@
                 <span class="text-[#7A1F33]">Every Occasion</span>
               </h1>
               <p
-                class="text-xl font-semibold text-center pt-8 max-w-[1050px] mx-auto text-black/60"
+                class="text-xl font-semibold text-center pt-8 max-w-[1050px] mx-auto text-black/70"
               >
                 Connect with verified professional artists and entertainers for
                 weddings, corporate events, parties, and more. Trusted by

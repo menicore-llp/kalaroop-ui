@@ -204,7 +204,7 @@
 
                 <!-- Features Grid -->
                 <div class="w-full">
-                    <div class="swiper custom-swiper" data-breakpoints='{
+                    <div class="swiper custom-swiper" data-autoplay="true" data-breakpoints='{
                         "0": { "slidesPerView": 1 },
                         "640": { "slidesPerView": 2 },
                         "1024": { "slidesPerView": 3 },
@@ -315,10 +315,10 @@
                         class="category-title opacity-0 translate-y-6 transition-all duration-700 ease-out text-4xl md:text-5xl font-bold font-playfair">
                         Artist Categories
                     </h2>
-                    <p
+                    <!-- <p
                         class="category-title opacity-0 translate-y-6 transition-all duration-700 ease-out delay-150 text-base md:text-lg font-medium text-gray-600 text-center">
                         Discover skilled artists across multiple categories in one place.
-                    </p>
+                    </p> -->
                 </div>
 
                 <!-- Categories Grid -->
@@ -329,7 +329,7 @@
                         "1024": { "slidesPerView": 4 },
                         "1280": { "slidesPerView": 5 }
                     }'>
-                        <div class="pb-2 flex items-center justify-end gap-2">
+                        <div class="pb-2 flex items-center justify-end gap-2 mb-4">
                             <button type="button"
                                 class="prev-button cursor-pointer p-2.5 text-[#7A1F33] hover:bg-[#7A1F33] hover:!text-white flex items-center justify-center rounded-lg transition-[opacity] opacity-0 duration-700 ease-out border border-[#7A1F33] !rounded-full">
                                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -447,10 +447,10 @@
                         class="artist-title opacity-0 translate-y-6 transition-all duration-700 ease-out text-4xl md:text-5xl font-bold font-playfair">
                         Our Artists
                     </h2>
-                    <p
+                    <!-- <p
                         class="artist-title opacity-0 translate-y-6 transition-all duration-700 ease-out delay-150 text-base md:text-lg font-medium text-gray-600 text-center">
                         Top-rated professionals ready to make your event unforgettable
-                    </p>
+                    </p> -->
                 </div>
 
                 <!-- Artists Grid -->
@@ -462,7 +462,7 @@
                         "1024": { "slidesPerView": 3 },
                         "1280": { "slidesPerView": 4 }
                     }'>
-                        <div class="pb-2 flex items-center justify-end gap-2">
+                        <div class="pb-2 flex items-center justify-end gap-2 mb-2">
                             <button type="button"
                                 class="prev-button cursor-pointer p-2.5 text-[#7A1F33] hover:bg-[#7A1F33] hover:!text-white flex items-center justify-center rounded-lg transition-[opacity] opacity-0 duration-700 ease-out border border-[#7A1F33] !rounded-full">
                                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -730,10 +730,10 @@
                         class="work-title opacity-0 translate-y-6 transition-all duration-700 ease-out text-4xl md:text-5xl font-bold font-playfair">
                         How It Works
                     </h2>
-                    <p
+                    <!-- <p
                         class="work-title opacity-0 translate-y-6 transition-all duration-700 ease-out delay-150 text-base md:text-lg font-medium text-gray-600 text-center">
                         Three simple steps to book your perfect artist
-                    </p>
+                    </p> -->
                 </div>
 
                 <!-- Steps -->
@@ -829,7 +829,7 @@
                         "1024": { "slidesPerView": 3 },
                         "1280": { "slidesPerView": 4 }
                     }'>
-                        <div class="pb-2 flex items-center justify-end gap-2">
+                        <div class="pb-2 flex items-center justify-end gap-2 mb-2">
                             <button type="button"
                                 class="prev-button cursor-pointer p-2.5 text-[#7A1F33] hover:bg-[#7A1F33] hover:!text-white flex items-center justify-center rounded-lg transition-[opacity] opacity-0 duration-700 ease-out border border-[#7A1F33] !rounded-full">
                                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -1202,10 +1202,10 @@
                         class="testimonial-title opacity-0 translate-y-6 transition-all duration-700 ease-out text-4xl md:text-5xl font-bold font-playfair text-center">
                         What Our Clients Say
                     </h2>
-                    <p
+                    <!-- <p
                         class="testimonial-title opacity-0 translate-y-6 transition-all duration-700 ease-out delay-150 text-base md:text-lg font-medium text-gray-600 text-center">
                         Trusted by thousands of event organizers
-                    </p>
+                    </p> -->
                 </div>
 
                 <!-- Testimonials -->
@@ -1216,7 +1216,7 @@
                         "1024": { "slidesPerView": 3 },
                         "1280": { "slidesPerView": 3 }
                     }'>
-                        <div class="pb-2 flex items-center justify-end gap-2">
+                        <div class="pb-2 flex items-center justify-end gap-2 mb-2">
                             <button type="button"
                                 class="prev-button cursor-pointer p-2.5 text-[#7A1F33] hover:bg-[#7A1F33] hover:!text-white flex items-center justify-center rounded-lg transition-[opacity] opacity-0 duration-700 ease-out border border-[#7A1F33] !rounded-full">
                                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -1627,10 +1627,16 @@
             }
         }
 
+        const autoplay = swiperEl.dataset.autoplay === "true" ? {
+            delay: 3000,
+            disableOnInteraction: false,
+        } : false;
+
         new Swiper(swiperEl, {
             loop: false,
             spaceBetween: 24,
             grabCursor: true,
+            autoplay: autoplay,
 
             navigation: {
                 nextEl: swiperEl.closest("section")?.querySelector(".next-button"),

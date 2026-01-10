@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        .font-playfair {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+    </style>
+</head>
+<!-- #ffffe6 -->
+
+<body class="bg-[#FAF8F5] text-[#2F2F2F]">
+    <header class="py-2 sticky top-0 bg-[#748C74] text-white border-b border-[#748C74] z-20">
+        <div class="container">
+            <div class="flex justify-between">
+                <div
+                    class="w-[120px] md:w-[150px] h-[36px] md:h-[46px] flex justify-center items-center text-2xl font-bold font-playfair">
+                    <span>KalaRoop</span>
+                </div>
+                <div class="flex gap-7 font-medium items-center max-md:hidden text-base">
+                    <a href="#">Browse Artists</a>
+                    <a href="#">How It Works</a>
+                    <a href="#">Help</a>
+                    <a href="#"
+                        class="group rounded-full relative flex items-center px-4 py-1.5 justify-center overflow-hidden bg-transparent text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#7A1F33] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-white"><span
+                            class="relative z-10 text-white group-hover:text-white">Sign In</span></a>
+                    <button
+                        class="group rounded-full relative flex items-center px-4 py-1.5 justify-center overflow-hidden bg-[#7A1F33] text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#fff] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-[#7A1F33] hover:border-white">
+                        <span class="relative z-10 group-hover:text-[#7A1F33]">Join as Artist</span>
+                    </button>
+                </div>
+                <button type="button" onclick="openMenu()" class="cursor-pointer hidden max-md:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="my-auto"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div
+            class="hidden max-md:block menu fixed -z-10 top-[-100%] opacity-0 transition-all duration-300 ease-in-out w-screen py-4 bg-[#748C74] h-full">
+            <div class="container">
+                <div class="flex flex-col gap-6 items-start justify-center text-xl font-medium pl-2">
+                    <a href="#">Find Singers</a>
+                    <a href="#">How It Works</a>
+                    <a href="#">Become a Singer</a>
+                    <a href="#">Help</a>
+                    <a href="#">Sign In</a>
+                    <a href="#"
+                        class="group rounded-full relative flex items-center px-4 py-1.5 justify-center overflow-hidden bg-[#7A1F33] text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#fff] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-[#7A1F33] hover:border-white">
+                        <span class="relative z-10 group-hover:text-[#7A1F33]">Join as Artist</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- filter form -->
+        <section class="pt-12">
+            <div class="max-w-[1440px] mx-auto px-4">
+                <form
+                    class="filter-form opacity-0 translate-y-6 transition-all duration-500 ease-in-out grid grid-cols-5 relative max-[992px]:flex flex-col">
+                    <div
+                        class="flex flex-col px-2 py-1 bg-white border border-gray-400 border-r-0 rounded-l-lg max-[992px]:rounded-t-lg! max-[992px]:rounded-l-none max-[992px]:border-r max-[992px]:border-b-0">
+                        <label for="location" class="uppercase font-medium text-gray-600 text-sm">Location</label>
+                        <input type="text" id="location" name="location" placeholder="Enter location"
+                            class="outline-none font-semibold" value="New York, NY" />
+                    </div>
+                    <div
+                        class="flex flex-col px-2 py-1 bg-white border border-gray-400 border-r-0 max-[992px]:border-r max-[992px]:border-b-0">
+                        <label for="date" class="uppercase font-medium text-gray-600 text-sm">Date</label>
+                        <input type="date" id="date" name="date" placeholder="Enter date"
+                            class="outline-none font-semibold" value="New York, NY" />
+                    </div>
+                    <div
+                        class="flex flex-col px-2 py-1 bg-white border border-gray-400 border-r-0 max-[992px]:border-r max-[992px]:border-b-0">
+                        <label for="category" class="uppercase font-medium text-gray-600 text-sm">Category</label>
+                        <input type="text" id="category" name="category" placeholder="Enter category"
+                            class="outline-none font-semibold" value="Pop, Jazz" />
+                    </div>
+                    <div
+                        class="flex flex-col px-2 py-1 bg-white border border-gray-400 border-r-0 max-[992px]:border-r max-[992px]:border-b-0">
+                        <label for="budget" class="uppercase font-medium text-gray-600 text-sm">Budget</label>
+                        <select name="budget" id="budget"
+                            class="outline-none font-semibold border border-transparent border-l-0">
+                            <option value="500-2000">500-2000</option>
+                            <option value="2000-5000">2000-5000</option>
+                            <option value="5000-10000">5000-10000</option>
+                            <option value="10000+">10000+</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col px-2 py-1 bg-white border border-gray-400 mr-10 max-[992px]:mr-0">
+                        <label for="rating" class="uppercase font-medium text-gray-600 text-sm">Rating</label>
+                        <select name="rating" id="rating"
+                            class="outline-none font-semibold border border-transparent border-l-0">
+                            <option value="5">5</option>
+                            <option value="4">4 +</option>
+                            <option value="3">3 +</option>
+                        </select>
+                    </div>
+                    <button type="submit"
+                        class="bg-[#7A1F33] px-3 rounded-r-lg absolute h-full right-0 max-[992px]:static max-[992px]:h-[54px] max-[992px]:rounded-b-lg max-[992px]:rounded-r-none flex items-center justify-center hover:bg-[#7A1F33]/80 cursor-pointer gap-3 z-10 max-sm:gap-2">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+                        </svg>
+                        <span
+                            class="hidden max-[992px]:flex text-white text-lg font-semibold max-sm:text-base">Search</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+        <section class="py-20">
+            <div class="container">
+                <div class="flex flex-col gap-6">
+                    <div class="flex justify-between items-center max-sm:flex-col max-sm:items-start">
+                        <div class="flex flex-col available-artists opacity-0 translate-y-6 transition-all duration-500 ease-in-out">
+                            <p class="font-bold text-2xl gap-2">347 Artists available</p>
+                            <span class="text-sm font-medium text-gray-600">In New York, NY • Dec 25, 2026</span>
+                        </div>
+                        <div class="flex items-center gap-4 max-sm:mt-4 ml-auto sorting-options opacity-0 translate-y-6 transition-all duration-500 ease-in-out">
+                            <button type="button"
+                                class="p-2 bg-[#7A1F33] rounded-lg hover:bg-[#7A1F33]/80 cursor-pointer">
+                                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-width="2"
+                                        d="M3 11h18m-9 0v8m-8 0h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
+                                </svg>
+                            </button>
+                            <button type="button"
+                                class="p-2 bg-[#7A1F33] rounded-lg hover:bg-[#7A1F33]/80 cursor-pointer">
+                                <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M18 6H6m12 4H6m12 4H6m12 4H6" />
+                                </svg>
+                            </button>
+                            <select name="ratings" id="ratings"
+                                class="p-3 py-1 border border-gray-400 bg-white rounded">
+                                <option value="top_rated">Top Rated</option>
+                                <option value="most_reviewed">Most Reviewed</option>
+                                <option value="newest">Newest</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="artist-card opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col group bg-white rounded-3xl shadow-lg p-2"
+                            style="transition-delay: 0ms">
+                            <div class="relative aspect-square overflow-hidden rounded-2xl">
+                                <img src="./assets/Artist/Host.jpg" alt=""
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all" />
+                            </div>
+                            <div class="px-3 pt-2 pb-3">
+                                <h3 class="pt-2 font-semibold text-xl">Priya Sharma</h3>
+                                <div class="pt-1 flex justify-between">
+                                    <p class="text-xs text-gray-600">Host</p>
+                                    <p class="text-xs text-gray-600">Rating (4.8/5)</p>
+                                </div>
+                                <div class="py-2 flex items-center justify-between">
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="#7A1F33" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-map-pin-icon lucide-map-pin">
+                                            <path
+                                                d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <p class="text-sm text-gray-800">Ahmedabad</p>
+                                    </div>
+                                    <p class="text-lg font-semibold text-[#7A1F33]">
+                                        25,000/Event
+                                    </p>
+                                </div>
+                                <a href="#"
+                                    class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
+                                    View Profile
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
+                                        <path d="M18 8L22 12L18 16" />
+                                        <path d="M2 12H22" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="relative text-gray-100 pt-24 pb-12" style="background-color: rgba(122, 31, 51, 0.9)">
+        <img src="./assets/hero4.png" alt="Hero Banner"
+            class="absolute inset-0 w-full h-full object-cover -z-10 opacity-75 pb-1" />
+        <div class="container">
+            <div class="grid grid-cols-5 gap-8 max-md:grid-cols-2 pb-8">
+                <!-- Column 1 -->
+                <div class="col-span-2">
+                    <h3 class="text-white font-bold text-2xl mb-4 font-playfair">
+                        KalaRoop
+                    </h3>
+                    <p class="text-sm max-w-[300px]">
+                        The premier platform connecting artists with event opportunities
+                        worldwide.
+                    </p>
+                    <div class="flex gap-4 mt-4">
+                        <div class="bg-[#fcefe8] p-2 w-fit rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#7A1F33" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-facebook-icon lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </div>
+                        <div class="bg-[#fcefe8] p-2 w-fit rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#7A1F33" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </div>
+                        <div class="bg-[#fcefe8] p-2 w-fit rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#7A1F33" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-twitter-icon lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">For Artists</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Register</a></li>
+                        <li><a href="#" class="hover:text-white">How It Works</a></li>
+                        <li><a href="#" class="hover:text-white">Success Stories </a></li>
+                        <li><a href="#" class="hover:text-white">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">For Event Hosts</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Find Artists </a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Enterprise</a></li>
+                        <li><a href="#" class="hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-8 mt-8 text-center text-sm">
+                <p>&copy; 2026 KalaRoop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+<script>
+
+    // Filter Form
+    const filterFormObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove("opacity-0", "translate-y-6");
+                    entry.target.classList.add("opacity-100", "translate-y-0");
+                    filterFormObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    document
+        .querySelectorAll(".filter-form")
+        .forEach((el) => filterFormObserver.observe(el));
+
+    // Artist Title
+    const artistDetailObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove("opacity-0", "translate-y-6");
+                    entry.target.classList.add("opacity-100", "translate-y-0");
+                    artistDetailObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    document
+        .querySelectorAll(".available-artists, .sorting-options")
+        .forEach((el) => artistDetailObserver.observe(el));
+
+    // Artist Card
+    const artistObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove(
+                        "opacity-0",
+                        "translate-y-6",
+                        "translate-y-8"
+                    );
+                    entry.target.classList.add("opacity-100", "translate-y-0");
+                    artistObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    document
+        .querySelectorAll(".artist-title, .artist-card, .artist-cta")
+        .forEach((el) => artistObserver.observe(el));
+
+    // Toggle Menu
+    function openMenu() {
+        document.body.classList.toggle("menu-open");
+    }
+</script>
+
+</html>

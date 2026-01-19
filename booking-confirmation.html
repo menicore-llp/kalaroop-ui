@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        .font-playfair {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+    </style>
+</head>
+<!-- #ffffe6 -->
+
+<body class="bg-[#FAF8F5] text-[#2F2F2F]">
+    <header class="py-2 sticky top-0 bg-[#748C74] text-white border-b border-[#748C74] z-20">
+        <div class="container">
+            <div class="flex justify-between">
+                <a href="/index6.html"
+                    class="w-[120px] md:w-[150px] h-[36px] md:h-[46px] flex justify-center items-center text-2xl font-bold font-playfair">
+                    <span>KalaRoop</span>
+                </a>
+                <div class="flex gap-7 font-medium items-center max-md:hidden text-base">
+                    <a href="#">Browse Artists</a>
+                    <a href="#">How It Works</a>
+                    <a href="#">Help</a>
+                    <a href="#"
+                        class="group rounded-full relative flex items-center px-4 py-1.5 justify-center overflow-hidden bg-transparent text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#7A1F33] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-white"><span
+                            class="relative z-10 text-white group-hover:text-white">Sign In</span></a>
+                    <button
+                        class="group rounded-full relative flex items-center px-4 py-1.5 justify-center overflow-hidden bg-[#7A1F33] text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#fff] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-[#7A1F33] hover:border-white">
+                        <span class="relative z-10 group-hover:text-[#7A1F33]">Join as Artist</span>
+                    </button>
+                </div>
+                <button type="button" onclick="openMenu()" class="cursor-pointer hidden max-md:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="my-auto"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div
+            class="hidden max-md:block menu fixed -z-10 top-[-100%] opacity-0 transition-all duration-300 ease-in-out w-screen py-4 bg-[#748C74] h-full">
+            <div class="container">
+                <div class="flex flex-col gap-6 items-start justify-center text-xl font-medium pl-2">
+                    <a href="#">Find Singers</a>
+                    <a href="#">How It Works</a>
+                    <a href="#">Become a Singer</a>
+                    <a href="#">Help</a>
+                    <a href="#">Sign In</a>
+                    <a href="#"
+                        class="group rounded-full relative flex items-center px-4 py-1.5 justify-center overflow-hidden bg-[#7A1F33] text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-[#fff] before:duration-500 before:ease-out hover:before:h-56 hover:before:w-56 font-medium cursor-pointer border-2 border-[#7A1F33] hover:border-white">
+                        <span class="relative z-10 group-hover:text-[#7A1F33]">Join as Artist</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="pt-16 pb-24">
+            <div class="container">
+                <div class="flex flex-col">
+                    <div class="tick-mark-wrapper flex flex-col items-center">
+                        <div class="relative w-32 h-32">
+                            <!-- Rotating Background -->
+                            <svg class="absolute inset-0 w-full h-full text-green-500 animate-spin-slow"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M12 2c-.791 0-1.55.314-2.11.874l-.893.893a.985.985 0 0 1-.696.288H7.04A2.984 2.984 0 0 0 4.055 7.04v1.262a.986.986 0 0 1-.288.696l-.893.893a2.984 2.984 0 0 0 0 4.22l.893.893a.985.985 0 0 1 .288.696v1.262a2.984 2.984 0 0 0 2.984 2.984h1.262c.261 0 .512.104.696.288l.893.893a2.984 2.984 0 0 0 4.22 0l.893-.893a.985.985 0 0 1 .696-.288h1.262a2.984 2.984 0 0 0 2.984-2.984V15.7c0-.261.104-.512.288-.696l.893-.893a2.984 2.984 0 0 0 0-4.22l-.893-.893a.985.985 0 0 1-.288-.696V7.04a2.984 2.984 0 0 0-2.984-2.984h-1.262a.985.985 0 0 1-.696-.288l-.893-.893A2.984 2.984 0 0 0 12 2Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+
+                            <!-- Static Check Mark -->
+                            <svg class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 text-white"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5" />
+                            </svg>
+                        </div>
+                        <div class="pt-3 flex flex-col max-w-[872px] mx-auto">
+                            <h2 class="text-3xl font-bold text-center">Your request has been sent</h2>
+                            <p class="pt-1  text-center font-medium text-gray-600">
+                                The artist has recieved your details and will respond shortly.
+                            </p>
+                            <p class="pt-1 text-center text-sm font-medium text-gray-600">Reference ID: <span
+                                    class="font-semibold">ENQ-2026-0142</span></p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="request-details mt-10 p-6 bg-white border border-slate-200 flex flex-col rounded-xl max-w-[872px] mx-auto w-full max-sm:p-4">
+                        <p class="text-2xl font-bold">Your Request Details</p>
+                        <div class="pt-5 pb-8 flex items-center border-b border-slate-200">
+                            <div class="relative aspect-square h-20 w-20">
+                                <img src="./assets/hero1.jpeg" alt="artist image"
+                                    class="absolute inset-0 w-full h-full object-cover rounded-full">
+                            </div>
+                            <div class="flex flex-col ml-3 gap-1">
+                                <h1 class="text-2xl font-bold">Sarah Johnson</h1>
+                                <div class="flex items-start">
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-yellow-400" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z" />
+                                        </svg>
+                                        <svg class="w-5 h-5 text-yellow-400" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-gray-600">4.9 (127 reviews)</span>
+                                </div>
+                                <p class="text-gray-600 text-sm font-medium">Jazz & Soul Singer</p>
+                            </div>
+                        </div>
+                        <div class="pt-5 flex flex-col gap-6">
+                            <div class="flex gap-4 max-sm:flex-col max-sm:gap-0">
+                                <div class="w-[20%] max-sm:w-full">
+                                    <p class="font-medium text-gray-600">Tentative Date</p>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium">December 15, 2026</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 max-sm:flex-col max-sm:gap-0">
+                                <div class="w-[20%] max-sm:w-full">
+                                    <p class="font-medium text-gray-600">Location</p>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium">Mumbai, Maharashtra</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 max-sm:flex-col max-sm:gap-0">
+                                <div class="w-[20%] max-sm:w-full">
+                                    <p class="font-medium text-gray-600">Engagement Type</p>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium">Wedding Performance</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 max-sm:flex-col max-sm:gap-0">
+                                <div class="w-[20%] max-sm:w-full">
+                                    <p class="font-medium text-gray-600">Duration</p>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium">45 minutes</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 max-sm:flex-col max-sm:gap-0">
+                                <div class="w-[20%] max-sm:w-full">
+                                    <p class="font-medium text-gray-600">Requirements</p>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium">Looking for a classical Kathak performance during the sangeet
+                                        ceremony. Would prefer traditional repertoire with some contemporary fusion
+                                        elements. Venue has a stage with sound system.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 max-sm:flex-col max-sm:gap-0">
+                                <div class="w-[20%] max-sm:w-full">
+                                    <p class="font-medium text-gray-600">Indicative Budget</p>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-medium">₹25,000 - ₹35,000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="what-happens-next mt-8 p-6 bg-white border border-slate-200 flex flex-col rounded-xl max-w-[872px] mx-auto w-full max-sm:p-4">
+                        <p class="text-2xl font-bold">What Happens Next</p>
+                        <div class="pt-5 flex flex-col gap-6">
+                            <div class="flex gap-4 items-center max-sm:items-start">
+                                <div class="bg-[#7A1F33]/10 p-3 rounded-full">
+                                    <svg class="w-8 h-8 text-[#7A1F33]" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="flex flex-col flex-1">
+                                    <h3 class="font-semibold text-lg">Artist reviews your request</h3>
+                                    <p class="font-medium text-gray-600">Priya will review your requirements and check
+                                        availability for your date.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-center max-sm:items-start">
+                                <div class="bg-[#7A1F33]/10 p-3 rounded-full">
+                                    <svg class="w-8 h-8 text-[#7A1F33]" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-6.616l-2.88 2.592C8.537 20.461 7 19.776 7 18.477V17H5a2 2 0 0 1-2-2V6Zm4 2a1 1 0 0 0 0 2h5a1 1 0 1 0 0-2H7Zm8 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Zm-8 3a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H7Zm5 0a1 1 0 1 0 0 2h5a1 1 0 1 0 0-2h-5Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                </div>
+                                <div class="flex flex-col flex-1">
+                                    <h3 class="font-semibold text-lg">Artist contacts you with availability & quote</h3>
+                                    <p class="font-medium text-gray-600">You'll receive a personalized response with
+                                        pricing and any questions they may have.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-center max-sm:items-start">
+                                <div class="bg-[#7A1F33]/10 p-3 rounded-full">
+                                    <svg class="w-8 h-8 text-[#7A1F33]" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h1v2a1 1 0 0 0 1.707.707L9.414 13H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Z"
+                                            clip-rule="evenodd" />
+                                        <path fill-rule="evenodd"
+                                            d="M8.023 17.215c.033-.03.066-.062.098-.094L10.243 15H15a3 3 0 0 0 3-3V8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1v2a1 1 0 0 1-1.707.707L14.586 18H9a1 1 0 0 1-.977-.785Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                </div>
+                                <div class="flex flex-col flex-1">
+                                    <h3 class="font-semibold text-lg">You discuss details directly</h3>
+                                    <p class="font-medium text-gray-600">Have a conversation to finalize performance
+                                        details, travel, and any special requests.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-center max-sm:items-start">
+                                <div class="bg-[#7A1F33]/10 p-3 rounded-full">
+                                    <svg class="w-8 h-8 text-[#7A1F33]" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M12 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm-1.5 8a4 4 0 0 0-4 4 2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-3Zm6.82-3.096a5.51 5.51 0 0 0-2.797-6.293 3.5 3.5 0 1 1 2.796 6.292ZM19.5 18h.5a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-1.1a5.503 5.503 0 0 1-.471.762A5.998 5.998 0 0 1 19.5 18ZM4 7.5a3.5 3.5 0 0 1 5.477-2.889 5.5 5.5 0 0 0-2.796 6.293A3.501 3.501 0 0 1 4 7.5ZM7.1 12H6a4 4 0 0 0-4 4 2 2 0 0 0 2 2h.5a5.998 5.998 0 0 1 3.071-5.238A5.505 5.505 0 0 1 7.1 12Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+
+                                </div>
+                                <div class="flex flex-col flex-1">
+                                    <h3 class="font-semibold text-lg">Engagement is mutually confirmed</h3>
+                                    <p class="font-medium text-gray-600">Once both parties agree on terms, you can
+                                        proceed with booking arrangements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="view-buttons mt-10 max-w-[872px] mx-auto grid grid-cols-3 w-full gap-4 max-sm:grid-cols-1">
+                        <a href="#"
+                            class="bg-[#7A1F33]/10 px-6 py-4 rounded-lg text-center text-[#7A1F33] font-medium hover:bg-[#7A1F33]/20 transition ">Visit
+                            Artist Profile</a>
+                        <a href="#"
+                            class="bg-[#7A1F33]/10 px-6 py-4 rounded-lg text-center text-[#7A1F33] font-medium hover:bg-[#7A1F33]/20 transition ">View
+                            My
+                            Requests</a>
+                        <button type="button" disabled
+                            class="bg-[#7A1F33]/10 px-6 py-4 rounded-lg text-center text-[#7A1F33] font-medium transition opacity-75 flex justify-center items-center gap-1">
+                            <div>
+                                <svg class="w-6 h-6 text-[#7A1F33]" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M8 10V7a4 4 0 1 1 8 0v3h1a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h1Zm2-3a2 2 0 1 1 4 0v3h-4V7Zm2 6a1 1 0 0 1 1 1v3a1 1 0 1 1-2 0v-3a1 1 0 0 1 1-1Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span>Message Artist</span>
+                        </button>
+                    </div>
+                    <div
+                        class="need-help mt-10 bg-white border border-slate-200 p-6 rounded-xl max-w-[872px] mx-auto w-full">
+                        <div class="flex gap-4">
+                            <div class="p-3 rounded-full bg-[#748C74]/20 flex justify-center items-center h-fit">
+                                <svg class="w-6 h-6 text-[#748C74]" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2a7 7 0 0 0-7 7 3 3 0 0 0-3 3v2a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1V9a5 5 0 1 1 10 0v7.083A2.919 2.919 0 0 1 14.083 19H14a2 2 0 0 0-2-2h-1a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 1.732-1h.351a4.917 4.917 0 0 0 4.83-4H19a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3 7 7 0 0 0-7-7Zm1.45 3.275a4 4 0 0 0-4.352.976 1 1 0 0 0 1.452 1.376 2.001 2.001 0 0 1 2.836-.067 1 1 0 1 0 1.386-1.442 4 4 0 0 0-1.321-.843Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="flex-1 flex flex-col">
+                                <h3 class="text-xl font-bold">Need Help?</h3>
+                                <p class="text-gray-600 font-medium">Our support team is here to assist you with
+                                    any
+                                    questions about your request.</p>
+                                <div class="flex gap-3 pt-3">
+                                    <a class="flex gap-1 items-center">
+                                        <svg class="w-4 h-4 text-[#7A1F33]" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                                                d="m3.5 5.5 7.893 6.036a1 1 0 0 0 1.214 0L20.5 5.5M4 19h16a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z" />
+                                        </svg>
+                                        <span class="text-sm font-medium text-[#7A1F33]">Contact Support</span>
+                                    </a>
+                                    <a class="flex gap-1 items-center">
+                                        <svg class="w-4 h-4 text-[#7A1F33]" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
+
+                                        <span class="text-sm font-medium text-[#7A1F33]">FAQs</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="relative text-gray-100 pt-24 pb-12" style="background-color: rgba(122, 31, 51, 0.9)">
+        <img src="./assets/hero4.png" alt="Hero Banner"
+            class="absolute inset-0 w-full h-full object-cover -z-10 opacity-75 pb-1" />
+        <div class="container">
+            <div class="grid grid-cols-5 gap-8 max-md:grid-cols-2 pb-8">
+                <!-- Column 1 -->
+                <div class="col-span-2">
+                    <h3 class="text-white font-bold text-2xl mb-4 font-playfair">
+                        KalaRoop
+                    </h3>
+                    <p class="text-sm max-w-[300px]">
+                        The premier platform connecting artists with event opportunities
+                        worldwide.
+                    </p>
+                    <div class="flex gap-4 mt-4">
+                        <div class="bg-[#fcefe8] p-2 w-fit rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#7A1F33" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-facebook-icon lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </div>
+                        <div class="bg-[#fcefe8] p-2 w-fit rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#7A1F33" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-instagram-icon lucide-instagram">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </div>
+                        <div class="bg-[#fcefe8] p-2 w-fit rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="#7A1F33" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-twitter-icon lucide-twitter">
+                                <path
+                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">For Artists</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Register</a></li>
+                        <li><a href="#" class="hover:text-white">How It Works</a></li>
+                        <li><a href="#" class="hover:text-white">Success Stories </a></li>
+                        <li><a href="#" class="hover:text-white">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">For Event Hosts</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Find Artists </a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Enterprise</a></li>
+                        <li><a href="#" class="hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">Contact</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-8 mt-8 text-center text-sm">
+                <p>&copy; 2026 KalaRoop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+<script>
+    //Second Section
+    const artistDetailsObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove("opacity-0", "translate-y-6");
+                    entry.target.classList.add("opacity-100", "translate-y-0");
+                    artistDetailsObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".artist-details, .event-details, .requirements, .budget, .estimated-cost, .need-help, .submit-btn, .response-text").forEach((el) => {
+        artistDetailsObserver.observe(el);
+    });
+
+    // Toggle Menu
+    function openMenu() {
+        document.body.classList.toggle("menu-open");
+    }
+</script>
+
+</html>

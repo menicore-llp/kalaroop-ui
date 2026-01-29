@@ -86,10 +86,10 @@
                         <div class="flex flex-col">
                             <div class="relative aspect-video w-full">
                                 <img src="./assets/Artist/Host.jpg" alt="artist_image" width="100%" height="100%"
-                                    class="absolute inset-0 w-full h-full object-cover rounded-xl">
+                                    class="artist-hero-image absolute inset-0 w-full h-full object-cover rounded-xl transition-all duration-[2000ms] ease-out opacity-0 scale-50 -rotate-6">
                             </div>
-                            <h1 class="text-3xl font-bold pt-5">Aisha Khanna (Singer) </h1>
-                            <div class="flex flex-wrap items-center gap-3 pt-2">
+                            <h1 class="artist-info-item opacity-0 -translate-x-6 transition-all duration-[2000ms] ease-out text-3xl font-bold pt-5">Aisha Khanna (Singer) </h1>
+                            <div class="artist-info-item opacity-0 -translate-x-6 transition-all duration-[2000ms] ease-out delay-200 flex flex-wrap items-center gap-3 pt-2">
                                 <p class="flex gap-1">
                                     <svg class="w-5 h-5 text-yellow-400" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -121,7 +121,7 @@
                                     <span class="font-medium text-gray-600">Travels Worldwide</span>
                                 </p>
                             </div>
-                            <div class="flex items-center gap-2 flex-wrap pt-2">
+                            <div class="artist-info-item opacity-0 -translate-x-6 transition-all duration-[2000ms] ease-out delay-400 flex items-center gap-2 flex-wrap pt-2">
                                 <div class="px-3 py-2 bg-[#7A1F33] rounded-full">
                                     <span class="font-medium text-white">Bollywood</span>
                                 </div>
@@ -138,43 +138,45 @@
                         </div>
     
                         <!-- tabs section -->
-                        <div class="py-10">
-                            <div class="border-b border-gray-400">
-                                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab"
+                        <div class="py-10 tabs-section">
+                            <div class="relative border-b border-gray-400">
+                                 
+                                <ul class="relative flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab"
                                     data-tabs-toggle="#default-tab-content" role="tablist"
                                     data-tabs-active-classes="text-[#7A1F33]">
                                     <li class="me-2" role="presentation">
                                         <button
-                                            class="inline-block px-4 pt-4 pb-1 border-b-2 border-[#7A1F33] font-semibold text-lg"
+                                            class="inline-block px-4 pt-4 pb-1 font-semibold text-lg cursor-pointer"
                                             id="about-tab" data-tabs-target="#about" type="button" role="tab"
                                             aria-controls="about" aria-selected="false">About</button>
                                     </li>
                                     <li class="me-2" role="presentation">
                                         <button
-                                            class="inline-block px-4 pt-4 pb-1 border-b-2 border-[#7A1F33] font-semibold text-lg"
+                                            class="inline-block px-4 pt-4 pb-1 font-semibold text-lg cursor-pointer"
                                             id="portfolio-tab" data-tabs-target="#portfolio" type="button" role="tab"
                                             aria-controls="portfolio" aria-selected="false">Portfolio</button>
                                     </li>
                                     <li class="me-2" role="presentation">
-                                        <button class="inline-block px-4 pt-4 pb-1 border-b-2 font-semibold text-lg"
+                                        <button class="inline-block px-4 pt-4 pb-1 font-semibold text-lg cursor-pointer"
                                             id="reviews-tab" data-tabs-target="#reviews" type="button" role="tab"
                                             aria-controls="reviews" aria-selected="false">Reviews</button>
                                     </li>
+                                    <div id="sliding-indicator" class="absolute bottom-0 left-0 h-[2px] bg-[#7A1F33] transition-all duration-300 ease-out"></div>
                                 </ul>
                             </div>
-                            <div id="default-tab-content">
-                                <div class="hidden p-4 rounded-base bg-neutral-secondary-soft" id="about" role="tabpanel"
+                            <div id="default-tab-content ">
+                                <div class=" hidden p-4 rounded-base bg-neutral-secondary-soft" id="about" role="tabpanel"
                                     aria-labelledby="about-tab">
-                                    <div class="flex flex-col gap-3">
-                                        <h2 class="text-4xl font-semibold">About Aisha</h2>
-                                        <p class="font-medium text-lg text-gray-600">Aisha is a classically trained vocalist
+                                    <div class="flex flex-col gap-3 ">
+                                        <h2 class="text-4xl font-semibold artist-info-item">About Aisha</h2>
+                                        <p class="font-medium text-lg text-gray-600 artist-info-item">Aisha is a classically trained vocalist
                                             with over a decade of experience enchanting audiences worldwide. Her soulful
                                             voice, versatile range, and captivating stage presence make her the perfect
                                             choice for weddings, corporate events, and private concerts. She seamlessly
                                             blends traditional Sufi melodies with contemporary Bollywood hits, creating an
                                             unforgetable musical experience that leaves a lasting impression.</p>
                                         <div class="pt-1 grid grid-cols-1 md:grid-cols-3 gap-4">
-                                            <div class="p-3 rounded-lg bg-[#7A1F33]/10 flex items-center">
+                                            <div class="stat-item opacity-0 -translate-y-6 transition-all duration-[2000ms] ease-out p-3 rounded-lg bg-[#7A1F33]/10 flex items-center">
                                                 <svg class="w-12 h-12 text-[#7A1F33]" aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                                     viewBox="0 0 24 24">
@@ -187,7 +189,7 @@
                                                     <p class="font-medium text-lg text-gray-600">Followers</p>
                                                 </div>
                                             </div>
-                                            <div class="p-3 rounded-lg bg-[#7A1F33]/10 flex items-center">
+                                            <div class="stat-item opacity-0 -translate-y-6 transition-all duration-[2000ms] ease-out delay-200 p-3 rounded-lg bg-[#7A1F33]/10 flex items-center">
                                                 <svg class="w-12 h-12 text-[#7A1F33]" aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                                     viewBox="0 0 24 24">
@@ -201,7 +203,7 @@
                                                     <p class="font-medium text-lg text-gray-600">Bookings</p>
                                                 </div>
                                             </div>
-                                            <div class="p-3 rounded-lg bg-[#7A1F33]/10 flex items-center">
+                                            <div class="stat-item opacity-0 -translate-y-6 transition-all duration-[2000ms] ease-out delay-400 p-3 rounded-lg bg-[#7A1F33]/10 flex items-center">
                                                 <svg class="w-12 h-12 text-[#7A1F33]" aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     fill="currentColor" viewBox="0 0 24 24">
@@ -225,7 +227,7 @@
                                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <!-- Video Item (Spans 2 cols on md) -->
                                         <div
-                                            class="md:col-span-2 relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                                            class="portfolio-item opacity-0 rotate-6 scale-90 transition-all duration-700 ease-out md:col-span-2 relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                                             <video controls class="w-full h-full object-cover aspect-video">
                                                 <source src="./assets/home_video.mp4" type="video/mp4">
                                                 Your browser does not support the video tag.
@@ -234,29 +236,29 @@
     
                                         <!-- Image 1 -->
                                         <div
-                                            class="relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group h-full min-h-[200px]">
-                                            <img src="./assets/Artist/Host.jpg" alt="Portfolio Image 1"
+                                            class="portfolio-item opacity-0 rotate-6 scale-90 transition-all duration-700 ease-out delay-100 relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group h-full min-h-[200px]">
+                                            <img src="./assets/Artist/singer1.jpg" alt="Portfolio Image 1"
                                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                         </div>
     
                                         <!-- Image 2 -->
                                         <div
-                                            class="relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group h-full min-h-[200px]">
-                                            <img src="./assets/Artist/Host.jpg" alt="Portfolio Image 2"
+                                            class="portfolio-item opacity-0 rotate-6 scale-90 transition-all duration-700 ease-out delay-200 relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group h-full min-h-[200px]">
+                                            <img src="./assets/Artist/singer2.jpg" alt="Portfolio Image 2"
                                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                         </div>
     
                                         <!-- Image 3 -->
                                         <div
-                                            class="relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group h-full min-h-[200px]">
-                                            <img src="./assets/Artist/Host.jpg" alt="Portfolio Image 3"
+                                            class="portfolio-item opacity-0 rotate-6 scale-90 transition-all duration-700 ease-out delay-300 relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group h-full min-h-[200px]">
+                                            <img src="./assets/Artist/singer3.jpg" alt="Portfolio Image 3"
                                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                         </div>
     
                                         <!-- Image 4 -->
                                         <div
-                                            class="relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group h-full min-h-[200px]">
-                                            <img src="./assets/Artist/Host.jpg" alt="Portfolio Image 3"
+                                            class="portfolio-item opacity-0 rotate-6 scale-90 transition-all duration-700 ease-out delay-400 relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group h-full min-h-[200px]">
+                                            <img src="./assets/Artist/singer4.jpg" alt="Portfolio Image 3"
                                                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                                         </div>
                                     </div>
@@ -275,7 +277,7 @@
                                         </div>
     
                                         <div class="grid grid-cols-2 gap-6 pt-4">
-                                            <div class="flex flex-col gap-2">
+                                            <div class="review-item opacity-0 -translate-y-10 transition-all duration-700 ease-out flex flex-col gap-2">
                                                 <div class="flex gap-3 items-center">
                                                     <img src="./assets/hero2.jpg" alt="client"
                                                         class="h-18 w-18 block rounded-full">
@@ -288,7 +290,7 @@
                                                     absolutely magical. Every guest was mesmerized. She is professional, and
                                                     her voice is truly a gift. Highly recommended!"</p>
                                             </div>
-                                            <div class="flex flex-col gap-2">
+                                            <div class="review-item opacity-0 -translate-y-10 transition-all duration-700 ease-out flex flex-col gap-2">
                                                 <div class="flex gap-3 items-center">
                                                     <img src="./assets/hero2.jpg" alt="client"
                                                         class="h-18 w-18 block rounded-full">
@@ -309,8 +311,8 @@
                     </div>
     
                     <div
-                        class="max-w-[30%] w-full p-6 h-fit sticky top-20 rounded-md shadow-lg max-[992px]:max-w-full bg-white">
-                        <p class="text-2xl font-bold text-center">Starts from <span class="text-[#7A1F33]">$500</span>/ hour
+                        class="booking-form max-w-[30%] w-full p-6 h-fit sticky top-20 rounded-md shadow-lg max-[992px]:max-w-full bg-white opacity-0 translate-x-full transition-all duration-[2000ms] ease-out">
+                        <p class="text-xl font-bold text-center">Starts from <span class="text-[#7A1F33]">Rs 5,000</span>/ hour
                         </p>
                         <form class="flex flex-col gap-3 pt-4">
                             <div class="flex flex-col gap-1">
@@ -433,7 +435,6 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
 
 </body>
-<script type="module" src="swup.js"></script>
 <script>
     // Animation Script
     window.addEventListener("load", () => {
@@ -446,6 +447,15 @@
         if (card) {
             card.classList.remove("opacity-0", "translate-y-8");
             card.classList.add("opacity-100", "translate-y-0");
+        }
+
+        // Artist Hero Image Animation
+        const artistImage = document.querySelector(".artist-hero-image");
+        if (artistImage) {
+            setTimeout(() => {
+                artistImage.classList.remove("opacity-0", "scale-50", "-rotate-6");
+                artistImage.classList.add("opacity-100", "scale-100", "rotate-0");
+            }, 100);
         }
     });
 
@@ -681,7 +691,272 @@
     document
         .querySelectorAll(".prev-button, .next-button")
         .forEach((el) => navButtonObserver.observe(el));
-</script>
 
+    // Booking Form Animation (Right to Left with Opacity)
+    function animateBookingForm() {
+        const bookingForms = document.querySelectorAll(".booking-form");
+        bookingForms.forEach((el) => {
+            // Reset to initial state
+            el.classList.add("opacity-0", "translate-x-full");
+            el.classList.remove("opacity-100", "translate-x-0");
+            
+            // Force reflow to ensure reset is applied
+            void el.offsetWidth;
+            
+            // Trigger animation after a small delay to ensure reset is visible
+            setTimeout(() => {
+                el.classList.remove("opacity-0", "translate-x-full");
+                el.classList.add("opacity-100", "translate-x-0");
+            }, 50);
+        });
+    }
+
+    // Trigger animation on page load
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(animateBookingForm, 200);
+        });
+    } else {
+        // Page already loaded, trigger immediately
+        setTimeout(animateBookingForm, 200);
+    }
+
+
+
+
+    // Stats Animation (From Top to Original Position)
+    const statsObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove("opacity-0", "-translate-y-6");
+                    entry.target.classList.add("opacity-100", "translate-y-0");
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".stat-item").forEach((el) => statsObserver.observe(el));
+
+    // Sliding Tab Indicator
+    const tabButtons = document.querySelectorAll('#default-tab button');
+    const slidingIndicator = document.getElementById('sliding-indicator');
+
+    function updateSlidingIndicator(element) {
+        if (!element || !slidingIndicator) return;
+        const rect = element.getBoundingClientRect();
+        const parentRect = element.closest('ul').getBoundingClientRect();
+        
+        // Calculate relative position to the UL
+        const left = rect.left - parentRect.left;
+        const width = rect.width;
+
+        slidingIndicator.style.width = `${width}px`;
+        slidingIndicator.style.transform = `translateX(${left}px)`;
+    }
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            updateSlidingIndicator(e.currentTarget);
+            
+            // Trigger specific tab animations
+            const targetId = e.currentTarget.getAttribute('data-tabs-target');
+            triggerTabAnimation(targetId);
+        });
+    });
+
+    function triggerTabAnimation(targetId) {
+        // Wait a tiny bit for the tab content to be displayed by Flowbite
+        setTimeout(() => {
+            let items;
+            
+            if (targetId === '#portfolio') {
+                items = document.querySelectorAll('.portfolio-item');
+            } else if (targetId === '#reviews') {
+                items = document.querySelectorAll('.review-item');
+            } else {
+                return;
+            }
+
+            items.forEach(el => {
+                // 1. Temporarily disable transitions for an instant reset
+                el.classList.remove("transition-all", "duration-700", "ease-out");
+                
+                // 2. Reset to initial (hidden) state instantly
+                if (targetId === '#portfolio') {
+                    el.classList.add("opacity-0", "rotate-6", "scale-90");
+                    el.classList.remove("opacity-100", "rotate-0", "scale-100");
+                } else { // reviews
+                    el.classList.add("opacity-0", "-translate-y-10");
+                    el.classList.remove("opacity-100", "translate-y-0");
+                }
+                
+                // 3. Force browser reflow to apply the reset immediately
+                void el.offsetWidth;
+                
+                // 4. Re-enable transitions
+                el.classList.add("transition-all", "duration-700", "ease-out");
+                
+                // 5. Trigger the animation to the visible state
+                // Small delay ensures the transition property is fully active before changing the visual state
+                setTimeout(() => {
+                    if (targetId === '#portfolio') {
+                        el.classList.remove("opacity-0", "rotate-6", "scale-90");
+                        el.classList.add("opacity-100", "rotate-0", "scale-100");
+                    } else { // reviews
+                        el.classList.remove("opacity-0", "-translate-y-10");
+                        el.classList.add("opacity-100", "translate-y-0");
+                    }
+                }, 50);
+            });
+        }, 50);
+    }
+
+    // Initialize on active tab or first tab
+    // We wait a tick to ensure Flowbite/layout is ready
+    setTimeout(() => {
+        const activeTab = document.querySelector('#default-tab button[aria-selected="true"]') || document.querySelector('#default-tab button');
+        if (activeTab) {
+            updateSlidingIndicator(activeTab);
+        }
+    }, 100);
+
+    // Update on resize
+    window.addEventListener('resize', () => {
+        const activeTab = document.querySelector('#default-tab button[aria-selected="true"]');
+        if (activeTab) {
+            updateSlidingIndicator(activeTab);
+        }
+    });
+
+    // Initialize stats observer
+    const artistInfoObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove("opacity-0", "-translate-x-6");
+                    entry.target.classList.add("opacity-100", "translate-x-0");
+                    artistInfoObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".artist-info-item").forEach((el) => artistInfoObserver.observe(el));
+</script>
+<script type="module">
+    import Swup from 'https://unpkg.com/swup@4?module';
+    import SwupParallelPlugin from 'https://unpkg.com/@swup/parallel-plugin@0?module';
+    import SwupPreloadPlugin from 'https://unpkg.com/@swup/preload-plugin@3?module';
+
+    // Only initialize if not already initialized
+    if (!window.swup) {
+        window.swup = new Swup({
+            containers: ['#swup'],
+            plugins: [
+                new SwupParallelPlugin(),
+                new SwupPreloadPlugin({ preloadVisibleLinks: true }),
+            ],
+        });
+    }
+
+    const swup = window.swup;
+    const htmlEl = document.documentElement;
+    const ANIMATION_CLASSES = ['to-circle'];
+
+    // Simulate Swup animation on page load (refresh)
+    window.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('#swup');
+        if (container) {
+            // Set initial state
+            container.style.transition = 'clip-path 1.0s cubic-bezier(0.5, 0, 0.15, 1)';
+            container.style.clipPath = 'circle(0% at 50% 50%)';
+            htmlEl.classList.add('is-changing', 'to-circle');
+
+            // Force reflow
+            void container.offsetWidth;
+
+            // Trigger animation
+            requestAnimationFrame(() => {
+                container.style.clipPath = 'circle(150% at 50% 50%)';
+                
+                // Cleanup
+                setTimeout(() => {
+                    container.style.clipPath = '';
+                    container.style.transition = '';
+                    htmlEl.classList.remove('is-changing', 'to-circle');
+                }, 1000);
+            });
+        }
+    });
+
+    function setClickOrigin(context) {
+        let x = 0.5;
+        let y = 0.5;
+        const event = context.trigger.event;
+        if (event && typeof event.clientX === 'number') {
+            x = event.clientX / window.innerWidth;
+            y = event.clientY / window.innerHeight;
+        }
+        htmlEl.style.setProperty('--click-x', x);
+        htmlEl.style.setProperty('--click-y', y);
+    }
+
+    function setAnimationType(context) {
+        let type = 'circle';
+        const triggerEl = context.trigger?.el;
+        if (triggerEl && triggerEl instanceof HTMLElement) {
+            const dataType = triggerEl.getAttribute('data-swup-animation');
+            if (dataType === 'circle') {
+                type = dataType;
+            }
+        }
+
+        htmlEl.classList.add('is-changing');
+        ANIMATION_CLASSES.forEach((cls) => htmlEl.classList.remove(cls));
+
+        if (type === 'circle') {
+            htmlEl.classList.add('to-circle');
+        }
+    }
+
+    function clearAnimationState() {
+        htmlEl.classList.remove('is-changing');
+        ANIMATION_CLASSES.forEach((cls) => htmlEl.classList.remove(cls));
+    }
+
+    // Trigger booking form animation after content is replaced
+    swup.hooks.on('content:replace', () => {
+        // Small delay to ensure DOM is ready
+        setTimeout(() => {
+            const bookingForms = document.querySelectorAll(".booking-form");
+            bookingForms.forEach((el) => {
+                el.classList.add("opacity-0", "translate-x-full");
+                el.classList.remove("opacity-100", "translate-x-0");
+                void el.offsetWidth; // Force reflow
+                setTimeout(() => {
+                    el.classList.remove("opacity-0", "translate-x-full");
+                    el.classList.add("opacity-100", "translate-x-0");
+                }, 50);
+            });
+        }, 200);
+    });
+
+    swup.hooks.on('visit:start', (context) => {
+        setClickOrigin(context);
+        setAnimationType(context);
+    });
+
+    swup.hooks.on('animation:in:done', () => {
+        clearAnimationState();
+    });
+
+    swup.hooks.on('visit:end', () => {
+        clearAnimationState();
+    });
+</script>
 
 </html>

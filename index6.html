@@ -1811,6 +1811,32 @@
     const htmlEl = document.documentElement;
     const ANIMATION_CLASSES = ['to-circle'];
 
+    // Simulate Swup animation on page load (refresh)
+    window.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('#swup');
+        if (container) {
+            // Set initial state
+            container.style.transition = 'clip-path 2.0s cubic-bezier(0.5, 0, 0.15, 1)';
+            container.style.clipPath = 'circle(0% at 50% 50%)';
+            htmlEl.classList.add('is-changing', 'to-circle');
+
+            // Force reflow
+            void container.offsetWidth;
+
+            // Trigger animation
+            requestAnimationFrame(() => {
+                container.style.clipPath = 'circle(150% at 50% 50%)';
+                
+                // Cleanup
+                setTimeout(() => {
+                    container.style.clipPath = '';
+                    container.style.transition = '';
+                    htmlEl.classList.remove('is-changing', 'to-circle');
+                }, 2000);
+            });
+        }
+    });
+
     function setClickOrigin(context) {
         let x = 0.5;
         let y = 0.5;
@@ -1863,6 +1889,61 @@
             card.classList.remove("opacity-0", "translate-y-8");
             card.classList.add("opacity-100", "translate-y-0");
         }
+
+        // Artist Hero Image Animation
+        const artistImage = document.querySelector(".artist-hero-image");
+        if (artistImage) {
+            // Small delay to ensure the initial state is rendered before removing classes for transition
+            setTimeout(() => {
+                artistImage.classList.remove("opacity-0", "scale-50", "-rotate-6");
+                artistImage.classList.add("opacity-100", "scale-100", "rotate-0");
+            }, 100);
+        }
+
+        // Booking Form Animation (Right to Left with Opacity)
+        const bookingForms = document.querySelectorAll(".booking-form");
+        if (bookingForms.length > 0) {
+            bookingForms.forEach((el) => {
+                // Reset to initial state
+                el.classList.add("opacity-0", "translate-x-full");
+                el.classList.remove("opacity-100", "translate-x-0");
+                
+                // Force reflow to ensure reset is applied
+                void el.offsetWidth;
+                
+                // Trigger animation after a small delay to ensure reset is visible
+                setTimeout(() => {
+                    el.classList.remove("opacity-0", "translate-x-full");
+                    el.classList.add("opacity-100", "translate-x-0");
+                }, 50);
+            });
+        }
+
+        // Tabs Border Line Animation
+        const tabsBorderObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const borderLine = entry.target.querySelector(".tab-border-line");
+                        if (borderLine) {
+                            borderLine.style.width = "100%";
+                        }
+                        tabsBorderObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        document
+            .querySelectorAll(".tabs-section")
+            .forEach((el) => {
+                const borderLine = el.querySelector(".tab-border-line");
+                if (borderLine) {
+                    borderLine.style.width = "0";
+                }
+                tabsBorderObserver.observe(el);
+            });
 
         // Re-initialize Flowbite tabs
         if (window.initFlowbite) {
@@ -1926,6 +2007,38 @@
         document.querySelectorAll(".story-item, .feature-item, .category-title, .category-card, .category-cta, .artist-title, .artist-card, .artist-cta, .work-title, .work-card, .product-title, .product-card, .product-cta, .cta-card, .testimonial-title, .testimonial-card").forEach((el) => {
             observer.observe(el);
         });
+
+        // Stats Animation (From Top to Original Position)
+        const statsObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove("opacity-0", "-translate-y-6");
+                        entry.target.classList.add("opacity-100", "translate-y-0");
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        document.querySelectorAll(".stat-item").forEach((el) => statsObserver.observe(el));
+
+        // Artist Info Animation (Left to Right)
+        const artistInfoObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove("opacity-0", "-translate-x-6");
+                        entry.target.classList.add("opacity-100", "translate-x-0");
+                        artistInfoObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        document.querySelectorAll(".artist-info-item").forEach((el) => artistInfoObserver.observe(el));
 
         // Re-observe nav buttons
         const navButtonObserver = new IntersectionObserver(

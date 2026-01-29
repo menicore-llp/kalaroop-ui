@@ -34,11 +34,11 @@
     <header class="py-2 sticky top-0 bg-[#748C74] text-white border-b border-[#748C74] z-20">
         <div class="container">
             <div class="flex justify-between">
-                <a href="/index6.html"
+                <a href="https://menicore-llp.github.io/kalaroop-ui/index6.html"
                     class="w-[120px] md:w-[150px] h-[36px] md:h-[46px] flex justify-center items-center text-2xl font-bold font-playfair">
                     <span>KalaRoop</span>
                 </a>
-                <div class="flex gap-7 font-medium items-center max-md:hidden text-base">
+                <div class="hidden md:flex gap-7 font-medium items-center text-base">
                     <a href="#">Browse Artists</a>
                     <a href="#">How It Works</a>
                     <a href="#">Help</a>
@@ -50,7 +50,7 @@
                         <span class="relative z-10 group-hover:text-[#7A1F33]">Join as Artist</span>
                     </button>
                 </div>
-                <button type="button" onclick="openMenu()" class="cursor-pointer hidden max-md:block">
+                <button type="button" onclick="openMenu()" class="cursor-pointer block md:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="my-auto"
                         viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div
-            class="hidden max-md:block menu fixed -z-10 top-[-100%] opacity-0 transition-all duration-300 ease-in-out w-screen py-4 bg-[#748C74] h-full">
+            class="block md:hidden menu fixed -z-10 top-[-100%] opacity-0 transition-all duration-300 ease-in-out w-screen py-4 bg-[#748C74] h-full">
             <div class="container">
                 <div class="flex flex-col gap-6 items-start justify-center text-xl font-medium pl-2">
                     <a href="#">Find Singers</a>
@@ -513,7 +513,7 @@
                                                     25,000/Event
                                                 </p>
                                             </div>
-                                            <a href="artist-details.html"
+                                            <a href="https://menicore-llp.github.io/kalaroop-ui/artist-details.html.html"
                                                  data-swup-animation="circle"
                                                 class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
                                                 View Profile
@@ -555,7 +555,7 @@
                                                 </div>
                                                 <p class="text-lg font-semibold text-[#7A1F33]">40,000/Art</p>
                                             </div>
-                                            <a href="artist-details.html"
+                                            <a href="https://menicore-llp.github.io/kalaroop-ui/artist-details.html.html"
                                                  data-swup-animation="circle"
                                                  class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
                                                 View Profile
@@ -599,7 +599,7 @@
                                                     15,000/Event
                                                 </p>
                                             </div>
-                                            <a href="artist-details.html"
+                                            <a href="https://menicore-llp.github.io/kalaroop-ui/artist-details.html.html"
                                                  data-swup-animation="circle"
                                                 class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
                                                 View Profile
@@ -643,7 +643,7 @@
                                                     80,000/Event
                                                 </p>
                                             </div>
-                                            <a href="artist-details.html"
+                                            <a href="https://menicore-llp.github.io/kalaroop-ui/artist-details.html.html"
                                                  data-swup-animation="circle"
                                                 class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
                                                 View Profile
@@ -687,7 +687,7 @@
                                                     25,000/Event
                                                 </p>
                                             </div>
-                                            <a href="artist-details.html"
+                                            <a href="https://menicore-llp.github.io/kalaroop-ui/artist-details.html.html"
                                                  data-swup-animation="circle"
                                                 class="text-white bg-[#7A1F33] border px-6 py-3 rounded-full font-medium text-sm flex justify-center items-center gap-4">
                                                 View Profile
@@ -1871,10 +1871,84 @@
         }
     }
 
+
     function clearAnimationState() {
         htmlEl.classList.remove('is-changing');
         ANIMATION_CLASSES.forEach((cls) => htmlEl.classList.remove(cls));
     }
+
+    // Helper function for sliding tab indicator
+    function updateSlidingIndicator(element) {
+        const slidingIndicator = document.getElementById('sliding-indicator');
+        if (!element || !slidingIndicator) return;
+        
+        const rect = element.getBoundingClientRect();
+        const parentRect = element.closest('ul').getBoundingClientRect();
+        
+        // Calculate relative position to the UL
+        const left = rect.left - parentRect.left;
+        const width = rect.width;
+
+        slidingIndicator.style.width = `${width}px`;
+        slidingIndicator.style.transform = `translateX(${left}px)`;
+    }
+
+    // Helper function for tab animations
+    function triggerTabAnimation(targetId) {
+        // Wait a tiny bit for the tab content to be displayed by Flowbite
+        setTimeout(() => {
+            let items;
+            
+            if (targetId === '#portfolio') {
+                items = document.querySelectorAll('.portfolio-item');
+            } else if (targetId === '#reviews') {
+                items = document.querySelectorAll('.review-item');
+            } else {
+                return;
+            }
+
+            items.forEach(el => {
+                // 1. Temporarily disable transitions for an instant reset
+                el.classList.remove("transition-all", "duration-700", "ease-out");
+                
+                // 2. Reset to initial (hidden) state instantly
+                if (targetId === '#portfolio') {
+                    el.classList.add("opacity-0", "rotate-6", "scale-90");
+                    el.classList.remove("opacity-100", "rotate-0", "scale-100");
+                } else { // reviews
+                    el.classList.add("opacity-0", "-translate-y-10");
+                    el.classList.remove("opacity-100", "translate-y-0");
+                }
+                
+                // 3. Force browser reflow to apply the reset immediately
+                void el.offsetWidth;
+                
+                // 4. Re-enable transitions
+                el.classList.add("transition-all", "duration-700", "ease-out");
+                
+                // 5. Trigger the animation to the visible state
+                // Small delay ensures the transition property is fully active before changing the visual state
+                setTimeout(() => {
+                    if (targetId === '#portfolio') {
+                        el.classList.remove("opacity-0", "rotate-6", "scale-90");
+                        el.classList.add("opacity-100", "rotate-0", "scale-100");
+                    } else { // reviews
+                        el.classList.remove("opacity-0", "-translate-y-10");
+                        el.classList.add("opacity-100", "translate-y-0");
+                    }
+                }, 50);
+            });
+        }, 50);
+    }
+
+    // Global resize listener for tabs
+    window.addEventListener('resize', () => {
+        const activeTab = document.querySelector('#default-tab button[aria-selected="true"]');
+        if (activeTab) {
+            updateSlidingIndicator(activeTab);
+        }
+    });
+
 
     // Re-initialize page scripts after content is replaced
     function reinitializeScripts() {
@@ -1948,6 +2022,29 @@
         // Re-initialize Flowbite tabs
         if (window.initFlowbite) {
             window.initFlowbite();
+        }
+
+        // Initialize Sliding Tab Indicator & Listeners
+        const tabButtons = document.querySelectorAll('#default-tab button');
+        if (tabButtons.length > 0) {
+            tabButtons.forEach(btn => {
+                // Remove old listeners to avoid duplicates if any (though Swup replaces body content, so this is clean)
+                btn.addEventListener('click', (e) => {
+                    updateSlidingIndicator(e.currentTarget);
+                    
+                    // Trigger specific tab animations
+                    const targetId = e.currentTarget.getAttribute('data-tabs-target');
+                    triggerTabAnimation(targetId);
+                });
+            });
+
+            // Initialize on active tab or first tab
+            setTimeout(() => {
+                const activeTab = document.querySelector('#default-tab button[aria-selected="true"]') || document.querySelector('#default-tab button');
+                if (activeTab) {
+                    updateSlidingIndicator(activeTab);
+                }
+            }, 100);
         }
 
         // Re-initialize Swiper

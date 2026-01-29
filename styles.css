@@ -1,13 +1,11 @@
 body.menu-open {
-  position: fixed;
   overflow: hidden;
-  z-index: 9999 !important;
+}
 
-  .menu {
-    opacity: 1;
-    top: 52px;
-    z-index: 9999 !important;
-  }
+body.menu-open .menu {
+  opacity: 1;
+  top: 52px;
+  z-index: 9999 !important;
 }
 
 .container {

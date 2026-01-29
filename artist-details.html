@@ -34,11 +34,12 @@
     <header class="py-2 sticky top-0 bg-[#748C74] text-white border-b border-[#748C74] z-20">
         <div class="container">
             <div class="flex justify-between">
-                <a href="/index6.html"
+                <a href="https://menicore-llp.github.io/kalaroop-ui/index6.html"
+                    data-swup-animation="circle"
                     class="w-[120px] md:w-[150px] h-[36px] md:h-[46px] flex justify-center items-center text-2xl font-bold font-playfair">
                     <span>KalaRoop</span>
                 </a>
-                <div class="flex gap-7 font-medium items-center max-md:hidden text-base">
+                <div class="hidden md:flex gap-7 font-medium items-center text-base">
                     <a href="#">Browse Artists</a>
                     <a href="#">How It Works</a>
                     <a href="#">Help</a>
@@ -50,7 +51,7 @@
                         <span class="relative z-10 group-hover:text-[#7A1F33]">Join as Artist</span>
                     </button>
                 </div>
-                <button type="button" onclick="openMenu()" class="cursor-pointer hidden max-md:block">
+                <button type="button" onclick="openMenu()" class="cursor-pointer block md:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="my-auto"
                         viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -60,7 +61,7 @@
             </div>
         </div>
         <div
-            class="hidden max-md:block menu fixed -z-10 top-[-100%] opacity-0 transition-all duration-300 ease-in-out w-screen py-4 bg-[#748C74] h-full">
+            class="block md:hidden menu fixed -z-10 top-[-100%] opacity-0 transition-all duration-300 ease-in-out w-screen py-4 bg-[#748C74] h-full">
             <div class="container">
                 <div class="flex flex-col gap-6 items-start justify-center text-xl font-medium pl-2">
                     <a href="#">Find Singers</a>

@@ -1901,42 +1901,55 @@
                 items = document.querySelectorAll('.portfolio-item');
             } else if (targetId === '#reviews') {
                 items = document.querySelectorAll('.review-item');
+            } else if (targetId === '#about') {
+                items = document.querySelectorAll('.stat-item');
             } else {
                 return;
             }
 
             items.forEach(el => {
+                const isStatItem = el.classList.contains('stat-item');
+                const transitionDuration = isStatItem ? "duration-[2000ms]" : "duration-700";
+
                 // 1. Temporarily disable transitions for an instant reset
-                el.classList.remove("transition-all", "duration-700", "ease-out");
+                el.classList.remove("transition-all", "duration-700", "duration-[2000ms]", "ease-out");
                 
                 // 2. Reset to initial (hidden) state instantly
                 if (targetId === '#portfolio') {
                     el.classList.add("opacity-0", "rotate-6", "scale-90");
                     el.classList.remove("opacity-100", "rotate-0", "scale-100");
-                } else { // reviews
+                } else if (targetId === '#reviews') {
                     el.classList.add("opacity-0", "-translate-y-10");
+                    el.classList.remove("opacity-100", "translate-y-0");
+                } else if (targetId === '#about') {
+                    el.classList.add("opacity-0", "-translate-y-6");
                     el.classList.remove("opacity-100", "translate-y-0");
                 }
                 
                 // 3. Force browser reflow to apply the reset immediately
                 void el.offsetWidth;
                 
-                // 4. Re-enable transitions
-                el.classList.add("transition-all", "duration-700", "ease-out");
-                
-                // 5. Trigger the animation to the visible state
-                // Small delay ensures the transition property is fully active before changing the visual state
-                setTimeout(() => {
-                    if (targetId === '#portfolio') {
-                        el.classList.remove("opacity-0", "rotate-6", "scale-90");
-                        el.classList.add("opacity-100", "rotate-0", "scale-100");
-                    } else { // reviews
-                        el.classList.remove("opacity-0", "-translate-y-10");
-                        el.classList.add("opacity-100", "translate-y-0");
-                    }
-                }, 50);
+                // 4. Re-enable transitions via RAF to ensure the DOM has updated
+                requestAnimationFrame(() => {
+                    el.classList.add("transition-all", transitionDuration, "ease-out");
+                    
+                    // 5. Trigger the animation to the visible state
+                    // Double RAF ensures the transition class is registered before we change the properties
+                    requestAnimationFrame(() => {
+                        if (targetId === '#portfolio') {
+                            el.classList.remove("opacity-0", "rotate-6", "scale-90");
+                            el.classList.add("opacity-100", "rotate-0", "scale-100");
+                        } else if (targetId === '#reviews') {
+                            el.classList.remove("opacity-0", "-translate-y-10");
+                            el.classList.add("opacity-100", "translate-y-0");
+                        } else if (targetId === '#about') {
+                             el.classList.remove("opacity-0", "-translate-y-6");
+                             el.classList.add("opacity-100", "translate-y-0");
+                        }
+                    });
+                });
             });
-        }, 50);
+        }, 150);
     }
 
     // Global resize listener for tabs
@@ -2020,6 +2033,9 @@
         // Re-initialize Flowbite tabs
         if (window.initFlowbite) {
             window.initFlowbite();
+            console.log('Flowbite re-initialized via Swup');
+        } else {
+            console.warn('Flowbite not found on window');
         }
 
         // Initialize Sliding Tab Indicator & Listeners
@@ -2028,21 +2044,70 @@
             tabButtons.forEach(btn => {
                 // Remove old listeners to avoid duplicates if any (though Swup replaces body content, so this is clean)
                 btn.addEventListener('click', (e) => {
-                    updateSlidingIndicator(e.currentTarget);
+                    const clickedBtn = e.currentTarget;
+                    const targetId = clickedBtn.getAttribute('data-tabs-target');
+                    
+                    // Manual Tab Switching Logic
+                    // 1. Update Buttons State
+                    tabButtons.forEach(b => {
+                        b.setAttribute('aria-selected', 'false');
+                        b.classList.remove('text-[#7A1F33]'); // Active color
+                        b.classList.add('text-gray-500'); // Inactive color (adjust as needed based on CSS)
+                    });
+                    clickedBtn.setAttribute('aria-selected', 'true');
+                    clickedBtn.classList.remove('text-gray-500');
+                    clickedBtn.classList.add('text-[#7A1F33]');
+
+                    // 2. Update Content State
+                    const allPanels = document.querySelectorAll('#default-tab-content > div[role="tabpanel"]');
+                    allPanels.forEach(panel => {
+                        panel.classList.add('hidden');
+                    });
+                    const targetPanel = document.querySelector(targetId);
+                    if (targetPanel) {
+                        targetPanel.classList.remove('hidden');
+                    }
+
+                    updateSlidingIndicator(clickedBtn);
                     
                     // Trigger specific tab animations
-                    const targetId = e.currentTarget.getAttribute('data-tabs-target');
                     triggerTabAnimation(targetId);
                 });
             });
 
-            // Initialize on active tab or first tab
-            setTimeout(() => {
-                const activeTab = document.querySelector('#default-tab button[aria-selected="true"]') || document.querySelector('#default-tab button');
+            // Initialize on active tab or first tab with retry mechanism
+            const initTabs = (retries = 3) => {
+               let activeTab = document.querySelector('#default-tab button[aria-selected="true"]');
+                
+                // If no tab is selected (common on Swup transition), click the first one
+                if (!activeTab) {
+                    const firstTab = document.querySelector('#default-tab button');
+                    if (firstTab) {
+                        console.log('No active tab found, clicking first tab to initialize.');
+                        firstTab.click(); 
+                        activeTab = firstTab;
+                    }
+                }
+
                 if (activeTab) {
                     updateSlidingIndicator(activeTab);
+                    
+                    // Force display of content if logic missed it
+                    const targetId = activeTab.getAttribute('data-tabs-target');
+                    const targetContent = document.querySelector(targetId);
+                    if (targetContent && targetContent.classList.contains('hidden')) {
+                         console.log('Tab content hidden, forcing display for:', targetId);
+                         targetContent.classList.remove('hidden');
+                         // Trigger animation manually since click might have happened before content was ready
+                         triggerTabAnimation(targetId); 
+                    }
+                } else if (retries > 0) {
+                     console.log('Tabs not ready, retrying...', retries);
+                     setTimeout(() => initTabs(retries - 1), 100);
                 }
-            }, 100);
+            };
+            
+            setTimeout(() => initTabs(), 100);
         }
 
         // Re-initialize Swiper

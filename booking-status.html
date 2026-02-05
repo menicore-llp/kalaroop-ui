@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Status - Kalaroop</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        .font-playfair {
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        /* Timeline connector */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background: #E5E7EB;
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-item.completed::before {
+            background: #22C55E;
+        }
+
+        /* Floating button animation */
+        .float-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Card hover effects */
+        .card-hover {
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .card-hover:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Button hover */
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-[#FAF8F5] text-[#2F2F2F] min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="#" class="text-gray-600 hover:text-gray-900">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </a>
+                <h1 class="text-lg font-semibold">Inquiry Status</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="relative text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    <span class="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full"></span>
+                </button>
+                <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Status Banner -->
+    <div class="bg-[#7A1F33]">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+
+                </div>
+                <div>
+                    <h2 class="text-white font-semibold">Quote Received</h2>
+                    <p class="text-white/70 text-sm">Booking ID: #BK2024-001</p>
+                </div>
+            </div>
+            <span class="bg-green-500 text-white text-xs font-medium px-3 py-1.5 rounded-full">Active</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <div class="grid lg:grid-cols-3 gap-6">
+            <!-- Left Column - Event Summary & Artist Response -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Event Summary Card -->
+                <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+                    <h3 class="text-lg font-semibold mb-4">Event Summary</h3>
+
+                    <!-- Artist Info -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-200">
+                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=100&h=100&fit=crop&crop=face"
+                                alt="DJ Alex Morgan" class="w-full h-full object-cover" />
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">DJ Alex Morgan</h4>
+                            <p class="text-sm text-gray-500">Electronic Music • 4.9★ (127 reviews)</p>
+                            <p class="text-sm text-gray-400">Specializes in corporate events and weddings</p>
+                        </div>
+                    </div>
+
+                    <!-- Event Details Grid -->
+                    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Event Date</p>
+                            <p class="font-medium">December 15, 2024</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Duration</p>
+                            <p class="font-medium">6:00 PM - 11:00 PM</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Event Type</p>
+                            <p class="font-medium">Corporate Holiday Party</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Guests</p>
+                            <p class="font-medium">150 people</p>
+                        </div>
+                    </div>
+
+                    <!-- Venue -->
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Venue</p>
+                        <p class="font-medium"><span class="text-[#7A1F33]">Grand Ballroom</span>, Downtown Convention
+                            Center</p>
+                        <p class="text-sm text-gray-500">123 Main Street, City Center</p>
+                    </div>
+                </div>
+
+                <!-- Artist Response Card -->
+                <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold">Artist Response</h3>
+                    </div>
+
+                    <!-- Quoted Price -->
+                    <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                        <div class="flex items-end justify-between">
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Quoted Price</p>
+                                <p class="text-3xl font-bold text-[#7A1F33]">$1,850</p>
+                            </div>
+                            <p class="text-sm text-gray-500 text-right">5-hour performance<br />Equipment & setup
+                                included</p>
+                        </div>
+                    </div>
+
+                    <!-- Notes from Artist -->
+                    <div class="mb-6">
+                        <p class="text-sm font-medium text-gray-700 mb-2">Notes from Artist</p>
+                        <div class="bg-amber-50 border-l-4 border-amber-300 rounded-r-lg p-4">
+                            <p class="text-sm text-gray-700 italic">
+                                "Thank you for considering me for your corporate holiday party! I'm excited about this
+                                event and have extensive experience with corporate gatherings of this size. The quote
+                                includes my full DJ setup with professional lighting, microphone for announcements, and
+                                a diverse playlist tailored to your corporate audience. I'll arrive 1 hour early for
+                                setup and can accommodate any special music requests. Looking forward to making your
+                                event memorable!"
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- What's Included -->
+                    <div>
+                        <p class="text-sm font-medium text-gray-700 mb-3">What's Included</p>
+                        <div class="grid sm:grid-cols-2 gap-2">
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-sm text-gray-600">Professional DJ Equipment</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-sm text-gray-600">Sound System</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-sm text-gray-600">Lighting Setup</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-sm text-gray-600">Microphone</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-sm text-gray-600">Setup & Breakdown</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-sm text-gray-600">Custom Playlist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Booking Timeline & Actions -->
+            <div class="space-y-6">
+                <!-- Booking Timeline Card -->
+                <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+                    <h3 class="text-lg font-semibold mb-6">Booking Timeline</h3>
+
+                    <div class="space-y-6 relative">
+                        <!-- Request Sent -->
+                        <div class="timeline-item completed relative pl-10">
+                            <div
+                                class="absolute left-0 top-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium">Request Sent</p>
+                                <p class="text-sm text-[#7A1F33]">Dec 10, 2024 at 2:30 PM</p>
+                                <p class="text-xs text-gray-400 mt-1">Initial booking request submitted</p>
+                            </div>
+                        </div>
+
+                        <!-- Quote Received -->
+                        <div class="timeline-item completed relative pl-10">
+                            <div
+                                class="absolute left-0 top-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium">Quote Received</p>
+                                <p class="text-sm text-[#7A1F33]">Dec 11, 2024 at 10:15 AM</p>
+                                <p class="text-xs text-gray-400 mt-1">Artist sent pricing details</p>
+                            </div>
+                        </div>
+
+                        <!-- Confirmed - Pending -->
+                        <div class="timeline-item relative pl-10">
+                            <div
+                                class="absolute left-0 top-0 w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-400">Confirmed</p>
+                                <p class="text-sm text-gray-400">Pending completion</p>
+                                <p class="text-xs text-gray-300 mt-1">Final booking confirmation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-3">
+                    <button
+                        class="cursor-pointer btn-primary w-full py-3.5 bg-[#2F2F2F] text-white rounded-xl text-sm font-medium flex items-center justify-center gap-2 transition-all">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                        Message Artist
+                    </button>
+                    <button
+                        class="cursor-pointer w-full py-3 text-[#7A1F33] text-sm font-medium flex items-center justify-center gap-2 hover:bg-red-50 rounded-xl transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        Cancel Booking
+                    </button>
+                    <button
+                        class="cursor-pointer bg-[#7A1F33] w-full py-3 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-[#7A1F33]/80 rounded-xl transition-colors">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 11.917 9.724 16.5 19 7.5" />
+                        </svg>
+
+                        Accept Offer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Chat Button -->
+    <button
+        class="float-btn fixed bottom-6 right-6 w-14 h-14 bg-amber-400 rounded-full shadow-lg flex items-center justify-center text-white text-xl font-bold hover:bg-amber-500 transition-colors z-50">
+        A
+    </button>
+
+</body>
+
+</html>

@@ -71,6 +71,62 @@
         .custom-checkbox {
             accent-color: #7A1F33;
         }
+
+        /* Tab press scale effect */
+        .tab-btn:active {
+            transform: scale(0.97);
+        }
+
+        .tab-btn {
+            transition: color 0.3s ease, transform 0.15s ease;
+        }
+
+        /* Form content animations */
+        .form-content {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        .form-content.fade-out-left {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .form-content.fade-out-right {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .form-content.fade-in-left {
+            animation: fadeInLeft 0.35s ease forwards;
+        }
+
+        .form-content.fade-in-right {
+            animation: fadeInRight 0.35s ease forwards;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
     </style>
 </head>
 <body class="bg-[#FAF8F5] text-[#2F2F2F] min-h-screen flex items-center justify-center p-4">
@@ -110,7 +166,7 @@
             <!-- Form Container -->
             <div class="px-6 pb-6">
                 <!-- Login Form -->
-                <form id="loginForm" class="space-y-4">
+                <form id="loginForm" class="space-y-4 form-content">
                     <!-- Email / Mobile -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2 ">Email / Mobile Number</label>
@@ -204,7 +260,7 @@
                 </form>
 
                 <!-- Sign Up Form (Hidden by default) -->
-                <form id="signupForm" class="space-y-4 hidden">
+                <form id="signupForm" class="space-y-4 hidden form-content">
                     <!-- Email Address -->
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
@@ -332,30 +388,58 @@
     </main>
 
     <script>
-        // Tab switching
+        // Tab switching with animations
         function switchTab(tab) {
             const slider = document.getElementById('tabSlider');
             const loginForm = document.getElementById('loginForm');
             const signupForm = document.getElementById('signupForm');
             const tabs = document.querySelectorAll('.tab-btn');
+            const activeTab = document.querySelector(`[data-tab="${tab}"]`);
 
+            // Update tab styles
             tabs.forEach(t => {
                 t.classList.remove('active');
                 t.classList.add('text-gray-500');
             });
-
-            const activeTab = document.querySelector(`[data-tab="${tab}"]`);
             activeTab.classList.add('active');
             activeTab.classList.remove('text-gray-500');
 
             if (tab === 'login') {
                 slider.style.transform = 'translateX(0)';
-                loginForm.classList.remove('hidden');
-                signupForm.classList.add('hidden');
+                
+                // Animate out signup form
+                signupForm.classList.add('fade-out-right');
+                
+                setTimeout(() => {
+                    signupForm.classList.add('hidden');
+                    signupForm.classList.remove('fade-out-right');
+                    
+                    // Animate in login form
+                    loginForm.classList.remove('hidden');
+                    loginForm.classList.add('fade-in-right');
+                    
+                    setTimeout(() => {
+                        loginForm.classList.remove('fade-in-right');
+                    }, 350);
+                }, 150);
             } else {
                 slider.style.transform = 'translateX(100%)';
-                loginForm.classList.add('hidden');
-                signupForm.classList.remove('hidden');
+                
+                // Animate out login form
+                loginForm.classList.add('fade-out-left');
+                
+                setTimeout(() => {
+                    loginForm.classList.add('hidden');
+                    loginForm.classList.remove('fade-out-left');
+                    
+                    // Animate in signup form
+                    signupForm.classList.remove('hidden');
+                    signupForm.classList.add('fade-in-left');
+                    
+                    setTimeout(() => {
+                        signupForm.classList.remove('fade-in-left');
+                    }, 350);
+                }, 150);
             }
         }
 

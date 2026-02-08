@@ -113,8 +113,8 @@
         <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
@@ -135,148 +135,156 @@
             <!-- Left Column - Event Summary & Artist Response -->
             <div class="lg:col-span-2 space-y-6">
                 <!-- Event Summary Card -->
-                <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
-                    <h3 class="text-lg font-semibold mb-4">Event Summary</h3>
+                <div class="viewport-animation opacity-0 translate-y-6 transition-all duration-700 ease-out">
+                    <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+                        <h3 class="text-lg font-semibold mb-4">Event Summary</h3>
 
-                    <!-- Artist Info -->
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-200">
-                            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=100&h=100&fit=crop&crop=face"
-                                alt="DJ Alex Morgan" class="w-full h-full object-cover" />
+                        <!-- Artist Info -->
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-full overflow-hidden bg-gray-200">
+                                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=100&h=100&fit=crop&crop=face"
+                                    alt="DJ Alex Morgan" class="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">DJ Alex Morgan</h4>
+                                <p class="text-sm text-gray-500">Electronic Music • 4.9★ (127 reviews)</p>
+                                <p class="text-sm text-gray-400">Specializes in corporate events and weddings</p>
+                            </div>
                         </div>
-                        <div>
-                            <h4 class="font-semibold">DJ Alex Morgan</h4>
-                            <p class="text-sm text-gray-500">Electronic Music • 4.9★ (127 reviews)</p>
-                            <p class="text-sm text-gray-400">Specializes in corporate events and weddings</p>
-                        </div>
-                    </div>
 
-                    <!-- Event Details Grid -->
-                    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4">
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Event Date</p>
-                            <p class="font-medium">December 15, 2024</p>
+                        <!-- Event Details Grid -->
+                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Event Date</p>
+                                <p class="font-medium">December 15, 2024</p>`
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Duration</p>
+                                <p class="font-medium">6:00 PM - 11:00 PM</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Event Type</p>
+                                <p class="font-medium">Corporate Holiday Party</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Guests</p>
+                                <p class="font-medium">150 people</p>
+                            </div>
                         </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Duration</p>
-                            <p class="font-medium">6:00 PM - 11:00 PM</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Event Type</p>
-                            <p class="font-medium">Corporate Holiday Party</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Guests</p>
-                            <p class="font-medium">150 people</p>
-                        </div>
-                    </div>
 
-                    <!-- Venue -->
-                    <div class="mt-4 pt-4 border-t border-gray-100">
-                        <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Venue</p>
-                        <p class="font-medium"><span class="text-[#7A1F33]">Grand Ballroom</span>, Downtown Convention
-                            Center</p>
-                        <p class="text-sm text-gray-500">123 Main Street, City Center</p>
+                        <!-- Venue -->
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Venue</p>
+                            <p class="font-medium"><span class="text-[#7A1F33]">Grand Ballroom</span>, Downtown
+                                Convention
+                                Center</p>
+                            <p class="text-sm text-gray-500">123 Main Street, City Center</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Artist Response Card -->
-                <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
-                            <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                    clip-rule="evenodd" />
-                            </svg>
+                <div class="viewport-animation opacity-0 translate-y-6 transition-all duration-700 ease-out">
+                    <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold">Artist Response</h3>
                         </div>
-                        <h3 class="text-lg font-semibold">Artist Response</h3>
-                    </div>
 
-                    <!-- Quoted Price -->
-                    <div class="bg-gray-50 rounded-xl p-4 mb-6">
-                        <div class="flex items-end justify-between">
-                            <div>
-                                <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Quoted Price</p>
-                                <p class="text-3xl font-bold text-[#7A1F33]">$1,850</p>
+                        <!-- Quoted Price -->
+                        <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                            <div class="flex items-end justify-between">
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase tracking-wide mb-1">Quoted Price</p>
+                                    <p class="text-3xl font-bold text-[#7A1F33]">$1,850</p>
+                                </div>
+                                <p class="text-sm text-gray-500 text-right">5-hour performance<br />Equipment & setup
+                                    included</p>
                             </div>
-                            <p class="text-sm text-gray-500 text-right">5-hour performance<br />Equipment & setup
-                                included</p>
                         </div>
-                    </div>
 
-                    <!-- Notes from Artist -->
-                    <div class="mb-6">
-                        <p class="text-sm font-medium text-gray-700 mb-2">Notes from Artist</p>
-                        <div class="bg-amber-50 border-l-4 border-amber-300 rounded-r-lg p-4">
-                            <p class="text-sm text-gray-700 italic">
-                                "Thank you for considering me for your corporate holiday party! I'm excited about this
-                                event and have extensive experience with corporate gatherings of this size. The quote
-                                includes my full DJ setup with professional lighting, microphone for announcements, and
-                                a diverse playlist tailored to your corporate audience. I'll arrive 1 hour early for
-                                setup and can accommodate any special music requests. Looking forward to making your
-                                event memorable!"
-                            </p>
+                        <!-- Notes from Artist -->
+                        <div class="mb-6">
+                            <p class="text-sm font-medium text-gray-700 mb-2">Notes from Artist</p>
+                            <div class="bg-amber-50 border-l-4 border-amber-300 rounded-r-lg p-4">
+                                <p class="text-sm text-gray-700 italic">
+                                    "Thank you for considering me for your corporate holiday party! I'm excited about
+                                    this
+                                    event and have extensive experience with corporate gatherings of this size. The
+                                    quote
+                                    includes my full DJ setup with professional lighting, microphone for announcements,
+                                    and
+                                    a diverse playlist tailored to your corporate audience. I'll arrive 1 hour early for
+                                    setup and can accommodate any special music requests. Looking forward to making your
+                                    event memorable!"
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- What's Included -->
-                    <div>
-                        <p class="text-sm font-medium text-gray-700 mb-3">What's Included</p>
-                        <div class="grid sm:grid-cols-2 gap-2">
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-sm text-gray-600">Professional DJ Equipment</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-sm text-gray-600">Sound System</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-sm text-gray-600">Lighting Setup</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-sm text-gray-600">Microphone</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-sm text-gray-600">Setup & Breakdown</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                <span class="text-sm text-gray-600">Custom Playlist</span>
+                        <!-- What's Included -->
+                        <div>
+                            <p class="text-sm font-medium text-gray-700 mb-3">What's Included</p>
+                            <div class="grid sm:grid-cols-2 gap-2">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-600">Professional DJ Equipment</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-600">Sound System</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-600">Lighting Setup</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-600">Microphone</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-600">Setup & Breakdown</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-600 flex-shrink-0" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="text-sm text-gray-600">Custom Playlist</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -284,7 +292,7 @@
             </div>
 
             <!-- Right Column - Booking Timeline & Actions -->
-            <div class="space-y-6">
+            <div class="space-y-6 viewport-animation opacity-0 translate-y-6 transition-all duration-700 ease-out">
                 <!-- Booking Timeline Card -->
                 <div class="bg-white rounded-2xl p-6 card-hover shadow-sm">
                     <h3 class="text-lg font-semibold mb-6">Booking Timeline</h3>
@@ -344,7 +352,7 @@
                 </div>
 
                 <!-- Action Buttons -->
-                <div class="space-y-3">
+                <div class="space-y-3 viewport-animation opacity-0 translate-y-6 transition-all duration-700 ease-out">
                     <button
                         class="cursor-pointer btn-primary w-full py-3.5 bg-[#2F2F2F] text-white rounded-xl text-sm font-medium flex items-center justify-center gap-2 transition-all">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -376,12 +384,24 @@
         </div>
     </main>
 
-    <!-- Floating Chat Button -->
-    <button
-        class="float-btn fixed bottom-6 right-6 w-14 h-14 bg-amber-400 rounded-full shadow-lg flex items-center justify-center text-white text-xl font-bold hover:bg-amber-500 transition-colors z-50">
-        A
-    </button>
+    <script>
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove("opacity-0", "translate-y-6");
+                        entry.target.classList.add("opacity-100", "translate-y-0");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
 
+        document.querySelectorAll(".viewport-animation").forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 
 </html>

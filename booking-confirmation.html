@@ -79,7 +79,8 @@
         <section class="pt-16 pb-24">
             <div class="container">
                 <div class="flex flex-col">
-                    <div class="tick-mark-wrapper flex flex-col items-center">
+                    <div
+                        class="tick-mark-wrapper flex flex-col items-center viewport-animation opacity-0 translate-y-6 transition-all duration-700 ease-out">
                         <div class="relative w-32 h-32">
                             <!-- Rotating Background -->
                             <svg class="absolute inset-0 w-full h-full text-green-500 animate-spin-slow"
@@ -108,7 +109,7 @@
                     </div>
 
                     <div
-                        class="request-details mt-10 p-6 bg-white border border-slate-200 flex flex-col rounded-xl max-w-[872px] mx-auto w-full max-sm:p-4">
+                        class="request-details mt-10 p-6 bg-white border border-slate-200 flex flex-col rounded-xl max-w-[872px] mx-auto w-full max-sm:p-4 viewport-animation opacity-0 translate-y-6 transition-all duration-700 ease-out">
                         <p class="text-2xl font-bold">Your Request Details</p>
                         <div class="pt-5 pb-8 flex items-center border-b border-slate-200">
                             <div class="relative aspect-square h-20 w-20">
@@ -209,7 +210,7 @@
                         </div>
                     </div>
                     <div
-                        class="what-happens-next mt-8 p-6 bg-white border border-slate-200 flex flex-col rounded-xl max-w-[872px] mx-auto w-full max-sm:p-4">
+                        class="what-happens-next mt-8 p-6 bg-white border border-slate-200 flex flex-col rounded-xl max-w-[872px] mx-auto w-full max-sm:p-4 viewport-animation opacity-0 translate-y-6 transition-all duration-700 ease-out">
                         <p class="text-2xl font-bold">What Happens Next</p>
                         <div class="pt-5 flex flex-col gap-6">
                             <div class="flex gap-4 items-center max-sm:items-start">
@@ -285,7 +286,7 @@
                         </div>
                     </div>
                     <div
-                        class="view-buttons mt-10 max-w-[872px] mx-auto grid grid-cols-3 w-full gap-4 max-sm:grid-cols-1">
+                        class="view-buttons mt-10 max-w-[872px] mx-auto grid grid-cols-3 w-full gap-4 max-sm:grid-cols-1 viewport-animation opacity-0 translate-y-6 transition-all duration-700 ease-out">
                         <a href="#"
                             class="bg-[#7A1F33]/10 px-6 py-4 rounded-lg text-center text-[#7A1F33] font-medium hover:bg-[#7A1F33]/20 transition ">Visit
                             Artist Profile</a>
@@ -308,7 +309,7 @@
                         </button>
                     </div>
                     <div
-                        class="need-help mt-10 bg-white border border-slate-200 p-6 rounded-xl max-w-[872px] mx-auto w-full">
+                        class="need-help mt-10 bg-white border border-slate-200 p-6 rounded-xl max-w-[872px] mx-auto w-full viewport-animation opacity-0 translate-y-6 transition-all duration-700 ease-out">
                         <div class="flex gap-4">
                             <div class="p-3 rounded-full bg-[#748C74]/20 flex justify-center items-center h-fit">
                                 <svg class="w-6 h-6 text-[#748C74]" aria-hidden="true"
@@ -438,22 +439,21 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 <script>
-    //Second Section
-    const artistDetailsObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.remove("opacity-0", "translate-y-6");
                     entry.target.classList.add("opacity-100", "translate-y-0");
-                    artistDetailsObserver.unobserve(entry.target);
+                    observer.unobserve(entry.target);
                 }
             });
         },
         { threshold: 0.2 }
     );
 
-    document.querySelectorAll(".artist-details, .event-details, .requirements, .budget, .estimated-cost, .need-help, .submit-btn, .response-text").forEach((el) => {
-        artistDetailsObserver.observe(el);
+    document.querySelectorAll(".viewport-animation").forEach((el) => {
+        observer.observe(el);
     });
 
     // Toggle Menu

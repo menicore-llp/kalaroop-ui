@@ -53,6 +53,9 @@
         .stepper-item.completed .stepper-number { background: #16A34A !important; color: white !important; }
         .stepper-item.completed .stepper-title  { color: #6B7280 !important; }
 
+        /* Stepper active state */
+        .stepper-item.active .stepper-title { font-weight: 700 !important; color: #2F2F2F !important; }
+
         /* Range slider custom thumb */
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none; appearance: none;
@@ -67,10 +70,10 @@
             box-shadow: 0 1px 4px rgba(0,0,0,0.2); cursor: pointer;
         }
         input[type="range"]::-webkit-slider-runnable-track {
-            height: 6px; border-radius: 99px; background: #E5E7EB;
+            height: 6px; border-radius: 99px; background: transparent;
         }
         input[type="range"]::-moz-range-track {
-            height: 6px; border-radius: 99px; background: #E5E7EB;
+            height: 6px; border-radius: 99px; background: transparent;
         }
 
         /* Language checkbox accent */
@@ -289,7 +292,7 @@
     </main>
 
     <!-- Artist Profile Setup (Hidden by default, shows after signup) -->
-    <div class="hidden w-full max-w-[960px] mx-auto" id="artistProfileSetup">
+    <div class="hidden w-full mx-auto max-w-[1440px]" id="artistProfileSetup">
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
             <!-- Header -->
             <div class="flex justify-between items-center px-8 py-5 border-b border-gray-200">
@@ -483,7 +486,7 @@
                             <div class="mb-8">
                                 <label class="block text-sm font-semibold text-[#2F2F2F] mb-1">Travel Radius</label>
                                 <p class="text-xs text-gray-400 mb-3" id="travelLabel">Willing to travel up to <strong>160 miles</strong></p>
-                                <input type="range" min="0" max="500" value="160" class="w-full h-1.5 bg-gray-200 rounded-full appearance-none cursor-pointer" id="travelRadius" oninput="updateTravelLabel()" />
+                                <input type="range" min="0" max="500" value="160" class="w-full h-1.5 rounded-full appearance-none cursor-pointer" style="background: linear-gradient(to right, #7A1F33 32%, #E5E7EB 32%)" id="travelRadius" oninput="updateTravelLabel()" />
                                 <div class="flex justify-between text-xs text-gray-400 mt-2">
                                     <span class="text-[#7A1F33] font-medium">Local Only</span>
                                     <span>Regional</span>
@@ -525,9 +528,9 @@
 
                         <form id="portfolioForm">
                             <!-- Boost Banner -->
-                            <div class="flex items-start gap-4 p-5 bg-[#FFF7ED] border border-[#FDBA74] rounded-xl mb-8">
-                                <div class="w-10 h-10 rounded-full bg-[#FED7AA] flex items-center justify-center shrink-0">
-                                    <svg class="w-5 h-5 text-[#EA580C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="flex items-start gap-4 p-5 bg-gradient-to-r from-[#FFF5F7] to-[#FFF0F5] border border-[#FCE7F3] rounded-xl mb-8">
+                                <div class="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5 text-[#7A1F33]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                     </svg>
                                 </div>
@@ -865,7 +868,7 @@
 
             tags.forEach(tag => {
                 const el = document.createElement('span');
-                el.className = 'genre-tag inline-flex items-center px-[18px] py-2 border-[1.5px] border-gray-200 rounded-full text-[13px] font-medium text-gray-600 bg-white cursor-pointer transition-all duration-200 select-none hover:border-[#7A1F33] hover:text-[#7A1F33]';
+                el.className = 'genre-tag inline-flex items-center px-[18px] py-2 border-[1.5px] border-gray-200 rounded-lg text-[13px] font-medium text-gray-600 bg-white cursor-pointer transition-all duration-200 select-none hover:border-[#7A1F33] hover:text-[#7A1F33]';
                 el.textContent = tag;
                 el.onclick = () => toggleGenreTag(el, tag);
                 container.appendChild(el);
@@ -1154,6 +1157,8 @@
             const label = document.getElementById('travelLabel');
             if (slider && label) {
                 label.innerHTML = `Willing to travel up to <strong>${slider.value} miles</strong>`;
+                const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+                slider.style.background = `linear-gradient(to right, #7A1F33 ${value}%, #E5E7EB ${value}%)`;
             }
         }
 

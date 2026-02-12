@@ -11,7 +11,6 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="./styles.css" />
     <style>
@@ -101,7 +100,7 @@
                     class="w-[120px] md:w-[150px] h-[36px] md:h-[46px] flex justify-center items-center text-2xl font-bold font-playfair">
                     <span>KalaRoop</span>
                 </a>
-                <div class="flex gap-7 font-medium items-center max-md:hidden text-base">
+                <div class="hidden md:flex gap-7 font-medium items-center text-base">
                     <a href="#">Browse Artists</a>
                     <a href="#">How It Works</a>
                     <a href="#">Help</a>
@@ -113,7 +112,7 @@
                         <span class="relative z-10 group-hover:text-[#7A1F33]">Join as Artist</span>
                     </button>
                 </div>
-                <button type="button" onclick="openMenu()" class="cursor-pointer hidden max-md:block">
+                <button type="button" onclick="openMenu()" class="cursor-pointer block md:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="my-auto"
                         viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -123,7 +122,7 @@
             </div>
         </div>
         <div
-            class="hidden max-md:block menu fixed -z-10 top-[-100%] opacity-0 transition-all duration-300 ease-in-out w-screen py-4 bg-[#748C74] h-full">
+            class="block md:hidden menu fixed -z-10 top-[-100%] opacity-0 transition-all duration-300 ease-in-out w-screen py-4 bg-[#748C74] h-full">
             <div class="container">
                 <div class="flex flex-col gap-6 items-start justify-center text-xl font-medium pl-2">
                     <a href="#">Find Singers</a>
@@ -147,27 +146,25 @@
         <!-- filter form -->
         <section class="pt-6">
             <div class="container">
-                
-
                 <form
                     class="filter-form opacity-0 translate-y-6 transition-all duration-500 ease-in-out grid grid-cols-5 relative max-[992px]:flex flex-col">
                     <div
                         class="flex flex-col px-2.5 py-1.5 bg-white border border-gray-200 border-r-0 rounded-l-xl max-[992px]:rounded-t-lg! max-[992px]:rounded-l-none max-[992px]:border-r max-[992px]:border-b-0">
                         <label for="location" class="uppercase font-medium text-gray-600 text-[10px]">Location</label>
                         <input type="text" id="location" name="location" placeholder="Enter location"
-                            class="outline-none border-none font-semibold text-sm" value="New York, NY" />
+                            class="outline-none font-semibold text-sm" value="New York, NY" />
                     </div>
                     <div
                         class="flex flex-col px-2.5 py-1.5 bg-white border border-gray-200 border-r-0 max-[992px]:border-r max-[992px]:border-b-0">
                         <label for="date" class="uppercase font-medium text-gray-600 text-[10px]">Date</label>
                         <input type="date" id="date" name="date" placeholder="Enter date"
-                            class="outline-none border-none font-semibold text-sm" value="New York, NY" />
+                            class="outline-none font-semibold text-sm" value="New York, NY" />
                     </div>
                     <div
                         class="flex flex-col px-2.5 py-1.5 bg-white border border-gray-200 border-r-0 max-[992px]:border-r max-[992px]:border-b-0">
                         <label for="category" class="uppercase font-medium text-gray-600 text-[10px]">Category</label>
                         <input type="text" id="category" name="category" placeholder="Enter category"
-                            class="outline-none border-none font-semibold text-sm" value="Pop, Jazz" />
+                            class="outline-none font-semibold text-sm" value="Pop, Jazz" />
                     </div>
                     <div
                         class="flex flex-col px-2.5 py-1.5 bg-white border border-gray-200 border-r-0 max-[992px]:border-r max-[992px]:border-b-0">
@@ -680,7 +677,7 @@
                     
                         <div>
                             <label for="contact-message" class="block mb-2 text-sm font-medium text-gray-900">Add a
-                                Message <span class="text-gray-400 font-normal">(Optional)</span></label>
+                                Message </label>
                             <textarea id="contact-message" name="message" rows="3"
                                 placeholder="Introduce your requirement, event details, or product interest (optional)"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#7A1F33] focus:border-[#7A1F33] block w-full p-2.5"></textarea>
